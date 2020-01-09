@@ -1,0 +1,27 @@
+{
+  "npmScope": "myworkspace",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "myapp-e2e": {
+      "tags": []
+    },
+    "myapp": {
+      "tags": []
+    },
+    "utilities": {
+      "tags": ["ui"]
+    },
+    "apps-dummy-e2e": {
+      "tags": []
+    },
+    "apps-dummy": {
+      "tags": []
+    }
+  }
+}
