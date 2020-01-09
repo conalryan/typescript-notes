@@ -1,21 +1,4 @@
 {
-  "name": "webpack-css-notes",
-  "version": "1.0.0",
-  "description": "Notes on loading css with webpack",
-  "main": "index.js",
-  "scripts": {
-    "start": "webpack && http-server dist"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^0.28.4",
-    "html-webpack-plugin": "^2.30.1",
-    "http-server": "^0.10.0",
-    "style-loader": "^0.18.2",
-    "webpack": "^3.11.0"
-  },
-  "dependencies": {
-    "g": "^2.0.1"
-  }
+  "name": "style-loader-css-loader",
+  "version": "0.0.1"
 }

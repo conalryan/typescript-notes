@@ -10,16 +10,62 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/%40import
 - @import cannot be used inside conditional group at-rules.
 
 ```css
-@import url("fineprint.css") print;
-@import url("bluish.css") projection, tv;
-@import 'custom.css';
-@import url("chrome://communicator/skin/");
-@import "common.css" screen, projection;
-@import url('landscape.css') screen and (orientation:landscape);
+@import url;
+@import url list-of-media-queries;
 ```
 
 # Angular-CLI
 - Angular-CLI uses webpack under the hood and only configures it.
+
+Setup
+--------------------------------------------------------------------------------
+index.html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        <span>span inside header</span>
+    </header>
+    <span>span outside of header</span>
+</body>
+</html>
+```
+
+styles.css
+```css
+@import "app/header.css";
+
+span {
+    color: green;
+}
+```
+
+app/header.css
+```css
+header span {
+    color: blue;
+}
+```
+
+package.json
+```json
+{
+  "name": "style-loader-css-loader",
+  "version": "0.0.1",
+}
+```
+
+http-server to serve html locally
+```bash
+yarn add -D http-server
+```
+
+
 
 # Install Webpack
 ```bash
