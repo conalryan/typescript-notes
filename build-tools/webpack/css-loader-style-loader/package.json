@@ -1,0 +1,7 @@
+{
+  "name": "css-loader-style-loader",
+  "version": "0.0.1",
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
+}
