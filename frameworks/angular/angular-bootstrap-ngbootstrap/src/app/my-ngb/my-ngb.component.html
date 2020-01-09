@@ -1,0 +1,76 @@
+<h2>Basic</h2>
+<div class="form-group">
+  <label class="control-label" for="my-input">Simple Input</label>
+  <input type="text"
+         class="form-control"
+         id="my-input"
+         name="my-input"
+         [(ngModel)]="myModel.myInput">
+</div>
+
+<h2>Date Picker</h2>
+<div class="form-group">
+  <label class="control-label" for="my-date">Date</label>
+  <div class="input-group">
+    <input type="text"
+           class="form-control"
+           id="my-date"
+           name="my-date"
+           [(ngModel)]="myModel.myDate"
+           ngbDatepicker
+           #d="ngbDatepicker"
+           (navigate)="navigate($event)">
+    <button class="input-group-addon" (click)="d.toggle();">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+
+<form #f="ngForm">
+  <div class="form-group">
+    <label class="control-label" for="my-form-input">Form Simple Input</label>
+    <input type="text"
+           class="form-control"
+           id="my-form-input"
+           name="my-form-input"
+           [(ngModel)]="myModel.myInput">
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="my-form-date">Form Date</label>
+    <div class="input-group">
+      <input type="text"
+             class="form-control"
+             id="my-form-date"
+             name="my-form-date"
+             [(ngModel)]="myModel.myDate"
+             ngbDatepicker #fd="ngbDatepicker">
+      <button class="input-group-addon" (click)="fd.toggle();">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<h2>Popover</h2>
+<div class="form-group">
+  <label class="form-control" for="my-popover">Popover</label>
+  <button type="button" class="btn btn-outline-secondary" id="my-popover" [ngbPopover]="popContent" placement="bottom">
+    I've got markup and bindings in my popover!
+  </button>
+  <ng-template #popContent>Hello, <b>{{name}}</b></ng-template>
+</div>
+
+<div class="form-group">
+  <label class="form-control" for="my-popover-input">Popover with Input</label>
+  <button type="button" class="btn btn-outline-secondary" id="my-popover-input-btn" [ngbPopover]="popoverInput" placement="bottom">
+    I've got markup and bindings in my popover!
+  </button>
+  <ng-template #popoverInput>
+    <input type="text"
+           class="form-control"
+           id="my-popover-input"
+           name="my-popover-input"
+           [(ngModel)]="myModel.myInput">
+  </ng-template>
+</div>

@@ -1,0 +1,262 @@
+@function set-color-map($theme-colors) {
+  $color-step: map-get($theme-colors, "step");
+
+  // nav-btn
+  $nav-btn-bg: map-get($theme-colors, "nav-btn-bg");
+  $nav-btn-bg-hover: map-get($theme-colors, "nav-btn-bg-hover");
+  $nav-btn-bg-active: map-get($theme-colors, "nav-btn-bg-active");
+  $nav-btn-bg-disabled: map-get($theme-colors, "nav-btn-bg-disabled");
+  $nav-btn-color: map-get($theme-colors, "nav-btn-color");
+  $nav-btn-color-hover: map-get($theme-colors, "nav-btn-color-hover");
+  $nav-btn-color-active: map-get($theme-colors, "nav-btn-color-active");
+  $nav-btn-color-disabled: map-get($theme-colors, "nav-btn-color-disabled");
+  // set pseudos if not defined
+  @if ($nav-btn-bg-hover == null) {
+    $nav-btn-bg-hover: darken($nav-btn-bg, $color-step);
+  }
+  @if ($nav-btn-bg-active == null) {
+    $nav-btn-bg-active: darken($nav-btn-bg-hover, $color-step);
+  }
+  @if ($nav-btn-bg-disabled == null) {
+    $nav-btn-bg-disabled: lighten($nav-btn-bg, $color-step);
+  }
+  @if ($nav-btn-color-hover == null) {
+    $nav-btn-color-hover: darken($nav-btn-color, $color-step);
+  }
+  @if ($nav-btn-color-active == null) {
+    $nav-btn-color-active: darken($nav-btn-color-hover, $color-step);
+  }
+  @if ($nav-btn-color-disabled == null) {
+    $nav-btn-color-disabled: lighten($nav-btn-color, $color-step);
+  }
+
+  // nav-link
+  $nav-link-bg: map-get($theme-colors, "nav-link-bg");
+  $nav-link-bg-hover: map-get($theme-colors, "nav-link-bg-hover");
+  $nav-link-bg-active: map-get($theme-colors, "nav-link-bg-active");
+  $nav-link-bg-disabled: map-get($theme-colors, "nav-link-bg-disabled");
+  $nav-link-color: map-get($theme-colors, "nav-link-color");
+  $nav-link-color-hover: map-get($theme-colors, "nav-link-color-hover");
+  $nav-link-color-active: map-get($theme-colors, "nav-link-color-active");
+  $nav-link-color-disabled: map-get($theme-colors, "nav-link-color-disabled");
+  // set pseudos if not defined
+  @if ($nav-link-bg-hover == null) {
+    $nav-link-bg-hover: darken($nav-link-bg, $color-step);
+  }
+  @if ($nav-link-bg-active == null) {
+    $nav-link-bg-active: darken($nav-link-bg-hover, $color-step);
+  }
+  @if ($nav-link-bg-disabled == null) {
+    $nav-link-bg-disabled: lighten($nav-link-bg, $color-step);
+  }
+  @if ($nav-link-color-hover == null) {
+    $nav-link-color-hover: darken($nav-link-color, $color-step);
+  }
+  @if ($nav-link-color-active == null) {
+    $nav-link-color-active: darken($nav-link-color-hover, $color-step);
+  }
+  @if ($nav-link-color-disabled == null) {
+    $nav-link-color-disabled: lighten($nav-link-color, $color-step);
+  }
+
+  // Form
+  $control-label-color: map-get($theme-colors, "control-label-color");
+  $control-label-color-disabled: map-get($theme-colors, "control-label-color-disabled");
+  $form-control-bg: map-get($theme-colors, "form-control-bg");
+  $form-control-bg-disabled: map-get($theme-colors, "form-control-bg-disabled");
+  $form-control-color: map-get($theme-colors, "form-control-color");
+  $form-control-color-disabled: map-get($theme-colors, "form-control-color-disabled");
+  // set pseudos if not defined
+  @if ($control-label-color-disabled == null) {
+    $control-label-color-disabled: lighten($control-label-color, $color-step);
+  }
+  @if ($form-control-bg-disabled == null) {
+    $form-control-bg-disabled: darken($form-control-bg, $color-step);
+  }
+  @if ($form-control-color-disabled == null) {
+    $form-control-color-disabled: lighten($form-control-color, $color-step);
+  }
+
+  // Primary
+  $primary: map-get($theme-colors, "primary");
+  $primary-hover: map-get($theme-colors, "primary-hover");
+  $primary-active: map-get($theme-colors, "primary-active");
+  $primary-disabled: map-get($theme-colors, "primary-disabled");
+  // set pseudos if not defined
+  @if ($primary-hover == null) {
+    $primary-hover: darken($primary, $color-step);
+  }
+  @if ($primary-active == null) {
+    $primary-active: darken($primary-hover, $color-step);
+  }
+  @if ($primary-disabled == null) {
+    $primary-disabled: lighten($primary, $color-step);
+  }
+
+  // Secondary
+  $secondary: map-get($theme-colors, "secondary");
+  $secondary-hover: map-get($theme-colors, "secondary-hover");
+  $secondary-active: map-get($theme-colors, "secondary-active");
+  $secondary-disabled: map-get($theme-colors, "secondary-disabled");
+  // set pseudos if not defined
+  @if ($secondary-hover == null) {
+    $secondary-hover: darken($secondary, $color-step);
+  }
+  @if ($secondary-active == null) {
+    $secondary-active: darken($secondary-hover, $color-step);
+  }
+  @if ($secondary-disabled == null) {
+    $secondary-disabled: lighten($secondary, $color-step);
+  }
+
+  // Success
+  $success: map-get($theme-colors, "success");
+  $success-hover: map-get($theme-colors, "success-hover");
+  $success-active: map-get($theme-colors, "success-active");
+  $success-disabled: map-get($theme-colors, "success-disabled");
+  // set pseudos if not defined
+  @if ($success-hover == null) {
+    $success-hover: darken($success, $color-step);
+  }
+  @if ($success-active == null) {
+    $success-active: darken($success-hover, $color-step);
+  }
+  @if ($success-disabled == null) {
+    $success-disabled: lighten($success, $color-step);
+  }
+
+  // Info
+  $info: map-get($theme-colors, "info");
+  $info-hover: map-get($theme-colors, "info-hover");
+  $info-active: map-get($theme-colors, "info-active");
+  $info-disabled: map-get($theme-colors, "info-disabled");
+  // set pseudos if not defined
+  @if ($info-hover == null) {
+    $info-hover: darken($info, $color-step);
+  }
+  @if ($info-active == null) {
+    $info-active: darken($info-hover, $color-step);
+  }
+  @if ($info-disabled == null) {
+    $info-disabled: lighten($info, $color-step);
+  }
+
+  // Warning
+  $warning: map-get($theme-colors, "warning");
+  $warning-hover: map-get($theme-colors, "warning-hover");
+  $warning-active: map-get($theme-colors, "warning-active");
+  $warning-disabled: map-get($theme-colors, "warning-disabled");
+  // set pseudos if not defined
+  @if ($warning-hover == null) {
+    $warning-hover: darken($warning, $color-step);
+  }
+  @if ($warning-active == null) {
+    $warning-active: darken($warning-hover, $color-step);
+  }
+  @if ($warning-disabled == null) {
+    $warning-disabled: lighten($warning, $color-step);
+  }
+
+  // Danger
+  $danger: map-get($theme-colors, "danger");
+  $danger-hover: map-get($theme-colors, "danger-hover");
+  $danger-active: map-get($theme-colors, "danger-active");
+  $danger-disabled: map-get($theme-colors, "danger-disabled");
+  // set pseudos if not defined
+  @if ($danger-hover == null) {
+    $danger-hover: darken($danger, $color-step);
+  }
+  @if ($danger-active == null) {
+    $danger-active: darken($danger-hover, $color-step);
+  }
+  @if ($danger-disabled == null) {
+    $danger-disabled: lighten($danger, $color-step);
+  }
+
+  // Link
+  $link: map-get($theme-colors, "link");
+  $link-hover: map-get($theme-colors, "link-hover");
+  $link-active: map-get($theme-colors, "link-active");
+  $link-disabled: map-get($theme-colors, "link-disabled");
+  // set pseudos if not defined
+  @if ($link-hover == null) {
+    $link-hover: darken($link, $color-step);
+  }
+  @if ($link-active == null) {
+    $link-active: darken($link-hover, $color-step);
+  }
+  @if ($link-disabled == null) {
+    $link-disabled: lighten($link, $color-step);
+  }
+
+  $color-map: ();
+  $color-map: map-merge((
+
+    // nav
+    "nav-btn-bg": $nav-btn-bg,
+    "nav-btn-bg-hover": $nav-btn-bg-hover,
+    "nav-btn-bg-active": $nav-btn-bg-active,
+    "nav-btn-bg-disabled": $nav-btn-bg-disabled,
+
+    "nav-btn-color": $nav-btn-color,
+    "nav-btn-color-hover": $nav-btn-color-hover,
+    "nav-btn-color-active": $nav-btn-color-active,
+    "nav-btn-color-disabled": $nav-btn-color-disabled,
+
+    "nav-link-bg": $nav-link-bg,
+    "nav-link-bg-hover": $nav-link-bg-hover,
+    "nav-link-bg-active": $nav-link-bg-active,
+    "nav-link-bg-disabled": $nav-link-bg-disabled,
+
+    "nav-link-color": $nav-link-color,
+    "nav-link-color-hover": $nav-link-color-hover,
+    "nav-link-color-active": $nav-link-color-active,
+    "nav-link-color-disabled": $nav-link-color-disabled,
+
+    // form
+    "control-label-color": $control-label-color,
+    "control-label-color-disabled": $control-label-color-disabled,
+    "form-control-bg": $form-control-bg,
+    "form-control-bg-disabled": $form-control-bg-disabled,
+    "form-control-color": $form-control-color,
+    "form-control-color-disabled": $form-control-color-disabled,
+
+    // buttons
+    "primary": $primary,
+    "primary-hover": $primary-hover,
+    "primary-active": $primary-active,
+    "primary-disabled": $primary-disabled,
+
+    "secondary": $secondary,
+    "secondary-hover": $secondary-hover,
+    "secondary-active": $secondary-active,
+    "secondary-disabled": $secondary-disabled,
+
+    "success": $success,
+    "success-hover": $success-hover,
+    "success-active": $success-active,
+    "success-disabled": $success-disabled,
+
+    "info": $info,
+    "info-hover": $info-hover,
+    "info-active": $info-active,
+    "info-disabled": $info-disabled,
+
+    "warning": $warning,
+    "warning-hover": $warning-hover,
+    "warning-active": $warning-active,
+    "warning-disabled": $warning-disabled,
+
+    "danger": $danger,
+    "danger-hover": $danger-hover,
+    "danger-active": $danger-active,
+    "danger-disabled": $danger-disabled,
+
+    "link": $link,
+    "link-hover": $link-hover,
+    "link-active": $link-active,
+    "link-disabled": $link-disabled
+  ), $theme-colors);
+
+  @return $color-map;
+}
