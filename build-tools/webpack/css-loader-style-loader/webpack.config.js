@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   
@@ -16,14 +15,13 @@ module.exports = {
    */
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js"
+    filename: "[name].js" // [name] returns the file name of the source e.g. styles.css -> styles.js
   },
   /**
    * Every file/module we want to be used in the bundle webpack expects to be a valid JavaScript module.
    * And certainly styles.css is not a valid JavaScript module.
    * So we need something to turn this CSS module into JS module.
    * And this is where loaders come in.
-   * Here is what webpack docs say about loaders:
    */
   module: {
     rules: [
@@ -35,20 +33,10 @@ module.exports = {
          */
         test: /\.css$/, // matches all files that end with .css
         use: [
-          'style-loader',
           'css-loader'
         ]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      /**
-       * By default this plugin generates its own index.html file.
-       * Use template option to specify the path to an existing index.html:
-       */
-      template: "./index.html"
-    })
-  ]
+  }
 };
 

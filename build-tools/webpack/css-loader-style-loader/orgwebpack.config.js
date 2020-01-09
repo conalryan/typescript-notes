@@ -23,7 +23,6 @@ module.exports = {
    * And certainly styles.css is not a valid JavaScript module.
    * So we need something to turn this CSS module into JS module.
    * And this is where loaders come in.
-   * Here is what webpack docs say about loaders:
    */
   module: {
     rules: [

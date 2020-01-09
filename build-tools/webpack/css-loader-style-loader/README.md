@@ -25,7 +25,7 @@ index.html
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <header>
@@ -74,29 +74,58 @@ Test server
 http-server
 ```
 
-
-# Install Webpack
+Install Webpack
+--------------------------------------------------------------------------------
 ```bash
-yarn add -D webpack
+yarn add -D webpack webpack-cli
+```
+
+Webpack Config
+--------------------------------------------------------------------------------
+Create webpack-config.js
+```javascript
+const path = require('path');
+module.exports = {};
+```
+
+Add script to packag.json
+```json
+"scripts": {
+  "build": "webpack"
+}
 ```
 
 - Angular-CLI loads these styles as a separate bundle to the client. So we will do the same.
 - Webpack creates bundles based on the entry points.
 - Add styles specific entry point to the webpack configuration.
 ```javascript
-// webpack-config.js
-const path = require('path');
-
 module.exports = {
-    entry: {
-        styles: "./styles.css"
-    }
+  entry: {
+    styles: "./styles.css"
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].js" // [name] returns the file name of the source e.g. style.css -> style.js
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // matches all files that end with .css
+        use: [
+          'css-loader'
+        ]
+      }
+    ]
+  }
 };
+
 ```
 
+Run
+```bash
+yarn run build
+```
 
-Webpack Config
---------------------------------------------------------------------------------
 - Requires valid JavaScript modules as file/module inputs
 - CSS is not a valid JavaScript module. Therefore, we must transform CSS module to a JS module.
 - Loaders:
