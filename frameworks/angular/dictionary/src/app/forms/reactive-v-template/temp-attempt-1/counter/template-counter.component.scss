@@ -1,0 +1,31 @@
+@import '../../../../../_variables';
+
+.btn-icon {
+  color: $primary;
+  &:disabled {
+    color: $primary-disabled;
+  }
+}
+
+.form-group {
+  button, input {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.counter {
+  text-align: center;
+  width: sizer(3rem, $base-adj);
+}
+
+// Remove red border from parent div
+.ng-touched.ng-invalid:not(form) {
+  border: none;
+}
+
+// Target red border on input
+input.ng-touched.ng-invalid:not(form) {
+  border: sizer(.0625rem, $base-adj) solid $danger;
+}

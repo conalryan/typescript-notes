@@ -1,0 +1,78 @@
+<div class="container">
+  <h1>Template Form</h1>
+  <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+
+    <div class="row">
+      <div class="col form-group">
+        <label for="property">Property</label>
+        <input type="text"
+               class="form-control"
+               id="property"
+               name="property"
+               [(ngModel)]="model.propertyCode"
+               #propertyRef="ngModel"
+               required>
+        <div [hidden]="propertyRef.valid || propertyRef.pristine"
+             class="alert alert-danger">
+          Property is required
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="check-in">Check-in</label>
+        <input type="text"
+               class="form-control"
+               id="check-in"
+               name="check-in"
+               [(ngModel)]="model.checkIn"
+               #checkInRef="ngModel"
+               required>
+        <div [hidden]="checkInRef.valid || checkInRef.pristine"
+             class="alert alert-danger">
+          Check-in is required
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="nights">Nights</label>
+        <input type="number"
+               class="form-control"
+               id="nights"
+               name="nights"
+               [(ngModel)]="model.nights"
+               #nightsRef="ngModel"
+               required
+               appCustomMin="1"
+               appCustomMax="9">
+        <div [hidden]="nightsRef.valid || nightsRef.pristine" class="alert alert-danger">
+          Nights must be 1 - 9 nights
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="adults">Adults</label>
+        <app-template-counter id="adults"
+                              [count]="model.adults"
+                              [minValue]="1"
+                              [maxValue]="9">
+        </app-template-counter>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col offset-10">
+        <button type="button" class="btn btn-default" (click)="newSearch(); searchForm.reset()">Clear</button>
+        <button type="submit" class="btn btn-success" [disabled]="!searchForm.form.valid">Search</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- NOT SHOWN IN DOCS -->
+  <!--<div>
+    <hr>
+    Name via form.controls = {{showFormControls(heroForm)}}
+  </div>-->
+
+</div>

@@ -1,0 +1,57 @@
+<div appMySpy>
+  <h1><a href="https://angular.io/guide/lifecycle-hooks">Lifecycle Hooks</a></h1>
+
+  <p>numberForChild: {{numberForChild}}</p>
+  <p>objectForChild: {{objectForChild.prop}}</p>
+  <p>modelForChild: {{modelForChild.prop}}</p>
+  <p>autoUpdate: {{autoUpdate}}</p>
+  <p>modelNotChild: {{modelNotForChild.prop}}</p>
+
+  <app-my-simple-changes
+    [myNumberInput]="numberForChild"
+    [myObjectInput]="objectForChild"
+    [myModelInput]="modelForChild">
+  </app-my-simple-changes>
+
+  <form ngForm="theForm">
+    <div class="form-group">
+      <input type="number"
+             class="form-control"
+             id="number-for-child"
+             name="number-for-child"
+             placeholder="numberForChild"
+             [(ngModel)]="numberForChild">
+    </div>
+    <div class="form-group">
+      <input type="text"
+             class="form-control"
+             id="object-for-child"
+             name="object-for-child"
+             placeholder="objectForChild"
+             [(ngModel)]="objectForChild.prop">
+    </div>
+    <div class="form-group">
+      <input type="text"
+             class="form-control"
+             id="model-for-child"
+             name="model-for-child"
+             placeholder="modelForChild"
+             [(ngModel)]="modelForChild.prop">
+    </div>
+    <div class="form-group">
+      <input type="text"
+             class="form-control"
+             id="model-not-for-child"
+             name="model-not-for-child"
+             placeholder="modelNotForChild"
+             [(ngModel)]="modelNotForChild.prop">
+    </div>
+    <div class="action-buttons">
+      <button type="button"
+              class="btn btn-primary"
+              (click)="manualChange()">
+        Manual Change
+      </button>
+    </div>
+  </form>
+</div>

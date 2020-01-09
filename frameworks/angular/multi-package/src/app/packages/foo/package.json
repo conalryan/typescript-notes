@@ -1,0 +1,10 @@
+{
+  "name": "angular-multi-package-foo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25"
+  },
+  "devDependencies": {}
+}

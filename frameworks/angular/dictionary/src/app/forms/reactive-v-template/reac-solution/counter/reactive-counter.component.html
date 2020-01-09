@@ -1,0 +1,28 @@
+<div class="form-group">
+  <button type="button"
+          class="btn btn-icon"
+          [disabled]="isDecrementDisabled()"
+          (click)="countDecrement()">
+    <i class="fa fa-minus" aria-hidden="true"></i>
+  </button>
+  <input type="number"
+         class="form-control counter"
+         id="count"
+         name="count"
+         [formControl]="fc">
+  <button type="button"
+          class="btn btn-icon"
+          [disabled]="isIncrementDisabled()"
+          (click)="countIncrement()">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+  </button>
+  <div *ngIf="fc.errors?.required" class="alert alert-danger">
+    Field is required
+  </div>
+  <div *ngIf="fc.errors?.customMin" class="alert alert-danger">
+    Minimum number is {{minValue}}
+  </div>
+  <div *ngIf="fc.errors?.customMax" class="alert alert-danger">
+    Maximum number is {{maxValue}}
+  </div>
+</div>

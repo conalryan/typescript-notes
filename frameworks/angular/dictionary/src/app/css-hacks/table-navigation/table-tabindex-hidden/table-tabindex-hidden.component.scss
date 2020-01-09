@@ -1,0 +1,46 @@
+@import '../../../../_variables';
+
+tr {
+  height: 3.3125rem;
+  &:focus {
+    outline: none;
+    @extend .selected;
+  }
+}
+
+.fixed-col {
+  width: 20rem;
+}
+
+.selected {
+  border: 2px solid $primary;
+}
+
+.email {
+  float: left;
+  overflow-x: hidden;
+  width: 75%;
+}
+
+.action-buttons {
+  float: right;
+  button {
+    margin-right: 0.5rem;
+  }
+}
+
+/*
+tr {
+  height: 3.3125rem;
+
+}
+
+.selected {
+  border: 2px solid $primary;
+}
+
+
+.table thead th {
+  border-bottom: 1px solid #cccccc;
+}
+*/

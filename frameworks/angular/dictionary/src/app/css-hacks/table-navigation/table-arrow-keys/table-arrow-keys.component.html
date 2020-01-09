@@ -1,0 +1,62 @@
+<section class="content">
+  <div class="form-group">
+    <label for="name">Input</label>
+    <input type="text"
+           class="form-control"
+           id="name"
+           name="name"/>
+  </div>
+  <table (blur)="onTableBlur()" class="table table-border table-striped table-hover">
+    <thead class="thead-light">
+    <tr>
+      <th tabindex="0" >#</th>
+      <th tabindex="0" >First Name</th>
+      <th tabindex="0" >Last Name</th>
+      <th tabindex="0" class="fixed-col" #prevTabTarget (focus)="resetFocusId()">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr tabindex="0"
+        #trRef
+        *ngFor="let item of items; let i = index"
+        id="{{'profile-' + i}}"
+        [class.selected]="isRowFocused(item?.id)"
+        (keydown.enter)="onRowKeydownEnter(item?.id)"
+        (keyup)="onRowKeyup($event, item?.id)"
+        (click)="onRowClick($event, item.id)">
+      <th scope="row">{{i}}</th>
+      <td>{{item?.firstName}}</td>
+      <td>{{item?.lastName}}</td>
+      <td (mouseenter)="hoverId = item?.id" (mouseleave)="hoverId = null">
+        <span [hidden]="showActionButtons(item?.id)">{{item?.email}}</span>
+        <div [hidden]="!showActionButtons(item?.id)">
+          <button tabindex="0"
+                  type="button"
+                  class="btn btn-secondary"
+                  id="view"
+                  (click)="$event.preventDefault(); onViewClick(item)">
+            View
+          </button>
+          <button tabindex="0"
+                  type="button"
+                  class="btn btn-secondary"
+                  id="edit"
+                  (click)="$event.preventDefault(); onEditClick(item)">
+            Edit
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="form-group">
+    <label for="tab-catch">input to catch next tab</label>
+    <input #nextTabTarget
+           type="text"
+           class="form-control"
+           id="tab-catch"
+           name="tab-catch"
+           (focus)="resetFocusId()"/>
+  </div>
+</section>

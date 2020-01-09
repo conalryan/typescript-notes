@@ -1,0 +1,131 @@
+@import '_theme-setup';
+
+$themes: (
+  ama: (
+    theme-colors: (
+      "body-bg": #f2f2f2,
+      "body-color": #333333,
+
+      "content-bg": #ffffff,
+      "content": #333333, //"border": #cccccc,
+
+      "primary": #578ebe,
+      "primary-text": #ffffff,
+      "secondary": #ffffff,
+      "secondary-text": #578ebe,
+      "success": #5cb85c,
+      "success-text": #ffffff,
+      "info": #5bc0de,
+      "info-text": #ffffff,
+      "warning": #f0ad4e,
+      "warning-text": #ffffff,
+      "danger": #d9534f,
+      "danger-text": #ffffff,
+      "link": #578ebe,
+
+      "step": 15%
+    )
+  )
+);
+
+@each $theme, $map in $themes {
+  @include theme-setup($theme, $map);
+}
+
+//$primary: #578ebe;
+//$secondary: #ffffff;
+//$success: #5cb85c;
+//$info: #5bc0de;
+//$warning: #f0ad4e;
+//$danger: #d9534f;
+
+/*
+// Color Palette
+$page-background: #f2f2f2;
+$body-background: #ffffff;
+$body-copy: #333333; // aka the text color
+
+// Button Colors
+$primary: #578ebe;
+$primary-hover: #3276b1;
+$primary-pressed: #255683;
+$primary-disabled: #9cc1e2;
+$primary-text: #ffffff;
+
+$secondary: #ffffff;
+$secondary-hover: #e4e4e4;
+$secondary-pressed: #d7d7d7;
+$secondary-disabled: #e4e4e4;
+$secondary-text: #578ebe;
+
+$danger: #d9534f;
+$danger-hover:#d2223d;
+$danger-pressed:#a71b30;
+$danger-disabled: #ed929f;
+$danger-text:#ffffff;
+
+$link:  #578ebe;
+$link-hover: #e4e4e4;
+$link-pressed: #d7d7d7;
+$link-disabled: #a1a1a1;
+
+// Disabled State
+// The Disabled state for all non-button elements such as (input field, radio button, checkboxes, dropdowns, and multi-select) will follow the bootstrap default.
+$disabled-background-color: #eee;
+$disabled-opacity: 1;
+$disabled-cursor: none;
+$disabled-color: #ccc;
+
+$disabled-on-off-toggle-color: #e4e4e4;
+$disabled-on-off-toggle-opacity: 0.5%;
+$disabled-on-off-toggle-cursor: default;
+
+// Alerts Color Palette
+// toast
+$alert-success-background: #DFF0D8;
+$alert-success-border: #D6E9C6;
+$alert-success-text: #3C763D;
+// buttons
+$alert-success: #5cb85c;
+$alert-success-hover: #47a347;
+$alert-success-pressed: #3d893d;
+$alert-success-disabled: #a7d8a7;
+$alert-success-text: #ffffff;
+
+// toast
+$alert-info-background: #D9EDF7;
+$alert-info-border: #BCE8F1;
+$alert-info-text: #31708F;
+$alert-info-close-icon: rgba(0,0,0,0.2);
+$alert-info-close-icon-hover: rgba(0,0,0,0.5);
+// buttons
+$alert-info: #5bc0de;
+$alert-info-hover: #39b3d7;
+$alert-info-pressed: #238faf;
+$alert-info-disabled: #95d7ea;
+$alert-info-text: #ffffff;
+
+// toast
+$alert-warning-background: #FCF8E3;
+$alert-warning-border: #FAEBCC;
+$alert-warning-text: #8A6D3B;
+$alert-warning-close-icon: rgba(0,0,0,0.2);
+$alert-warning-close-icon-hover: rgba(0,0,0,0.5);
+// buttons
+$alert-warning: #f0ad4e;
+$alert-warning-hover: #ed9c28;
+$alert-warning-pressed: #d68712;
+$alert-warning-disabled: #f5ca89;
+$alert-warning-text: #ffffff;
+
+// toast
+$alert-background: #F2DEDE;
+$alert-border: #EBCCD1;
+$alert-text: #A94442;
+// buttons
+$alert-danger: #d9534f;
+$alert-danger-hover: #d2223d;
+$alert-danger-pressed: #a71b30;
+$alert-danger-disabled: #ed929f;
+$alert-danger-text: #ffffff;
+*/

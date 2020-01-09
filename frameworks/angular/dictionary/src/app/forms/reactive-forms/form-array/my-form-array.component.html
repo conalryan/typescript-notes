@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>My Compound Reactive Form</h1>
+  <!-- The novalidate attribute in the <form> element prevents the browser from attempting native HTML validations. -->
+  <form [formGroup]="myForm" novalidate>
+    <div class="form-group">
+      <label class="control-label" for="first-name">First Name</label>
+      <input type="text"
+             class="form-control"
+             id="first-name"
+             name="first-name"
+             formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="last-name">Last Name</label>
+      <input type="text"
+             class="form-control"
+             id="last-name"
+             name="last-name"
+             formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="alias">Alias</label>
+      <input type="text"
+             class="form-control"
+             id="alias"
+             name="alias"
+             formControlName="alias">
+    </div>
+    <!-- Child Form -->
+    <h3>Child Form</h3>
+    <div formGroupName="address" class="well well-lg">
+      <div class="form-group">
+        <label class="control-label">Street:</label>
+        <input class="form-control" formControlName="street">
+      </div>
+      <div class="form-group">
+        <label class="control-label">City:</label>
+        <input class="form-control" formControlName="city">
+      </div>
+      <div class="form-group">
+        <label class="control-label">State:
+          <select class="form-control" formControlName="state">
+            <option *ngFor="let state of states" [value]="state">{{state}}</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="control-label">Zip Code:</label>
+        <input class="form-control" formControlName="zip">
+      </div>
+    </div>
+    <!-- Form Array -->
+    <h3>Form Array</h3>
+    <!-- CSS will be applied to formArrayName parent div -->
+    <div formArrayName="phoneNumbers" class="well well-lg">
+      inside div
+      <!-- The source of the repeated items is the FormArray.controls, not the FormArray itself. -->
+      <!-- CSS will be applied to formGroupName="i" parent element. Can be removed and form still works.-->
+      <div *ngFor="let phone of phoneNumbers.controls; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <label class="control-label">Phone</label>
+          <!-- CSS will be applied to formControl parent element. -->
+          <!-- formControlName does not work here. Throws error: ' Cannot find control with path: 'phoneNumbers -> 0 -> [object Object]' -->
+          <input class="form-control" [formControl]="phone" (click)="onPhoneClick(phone)">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

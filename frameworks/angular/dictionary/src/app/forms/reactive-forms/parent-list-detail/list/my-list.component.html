@@ -1,0 +1,23 @@
+<div class="scroll-table">
+  <table class="table table-striped table-hover">
+    <tbody>
+    <tr
+      *ngFor="let employee of employees"
+      [class.table-active]="employee.isSelected"
+      (click)="select(employee)">
+      <td>
+        <h4>{{employee.lastName}}, {{employee.firstName}}</h4>
+        <p>{{employee.alias}}</p>
+        <div class="row">
+          <div class="col">
+            <span>{{employee.dateOfBirth}}</span>
+          </div>
+          <div class="col">
+            <span>{{employee.phoneNumbers.join(", ")}}</span>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

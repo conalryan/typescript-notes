@@ -1,0 +1,23 @@
+<div class="container-fluid" id="parent">
+  <form [formGroup]="myParentFormGroup" (ngSubmit)="submit()" novalidate>
+    <!-- Summary -->
+    <section id="top">
+      <div class="row">
+        <div class="col">
+          <label>Company Id: {{myParent.companyId}}</label>
+        </div>
+        <div class="col form-group">
+          <label for="company-name">Company Name:</label>
+          <input type="text"
+                 class="form-control"
+                 id="company-name"
+                 placeholder="Compani name"
+                 formControlName="companyName">
+        </div>
+      </div>
+    </section>
+    <section id="list">
+      <app-my-list [employees]="myParent.employees" [frmArray]="employees"></app-my-list>
+    </section>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-2 border">
+    col-2
+  </div>
+
+  <div class="col-2 border">
+    col-2
+  </div>
+
+  <div class="col form-control">
+    <span class="btn btn-primary btn-sm selected" *ngFor="let item of selectedItems">
+      {{item}}<span class="close-selected" (click)="close(item)">&nbsp;x</span>
+    </span>
+    <input #input
+           type="text"
+           class="tag-input"
+           [ngbTypeahead]="search"
+           (selectItem)="selected($event)"
+           autofocus
+           placeholder="Select something..."/>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>My Simple Reactive Form</h1>
+  <!-- The novalidate attribute in the <form> element prevents the browser from attempting native HTML validations. -->
+  <form [formGroup]="myForm" novalidate>
+    <div class="form-group">
+      <label class="control-label" for="first-name">First Name</label>
+      <input type="text"
+             class="form-control"
+             id="first-name"
+             name="first-name"
+             formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="last-name">Last Name</label>
+      <input type="text"
+             class="form-control"
+             id="last-name"
+             name="last-name"
+             formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="alias">z</label>
+      <input type="text"
+             class="form-control"
+             id="alias"
+             name="alias"
+             formControlName="alias">
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<h1><a href="https://angular.io/api/core/ElementRef">ElementRef</a></h1>
+
+<h3>Class:</h3>
+<pre><code>
+class ElementRef {{ '{' }}
+  constructor(nativeElement: any)
+  nativeElement: any
+{{ '}' }}
+</code></pre>
+
+<h3>View</h3>
+<pre><code>
+{{'<'}}paragraph #myElementRef{{'>'}}INSIDE paragraph element{{'<'}}/paragraph{{'>'}}
+</code></pre>
+
+
+<!--
+  Template Reference Variable:
+  - Named reference to a DOM element within a template.
+  - Use @ViewChild in component/directive to access it.
+-->
+<p #myElementRef>INSIDE paragraph element</p>
+
+
+<h3>Component:</h3>
+<pre><code>
+@ViewChild('myElementRef', {{ '{ ' }}read: ElementRef {{ '}' }}) elmRef: ElementRef;
+// or without read parameter for ElementRef:
+// @ViewChild('myElementRef') elmRef: ElementRef;
+</code></pre>

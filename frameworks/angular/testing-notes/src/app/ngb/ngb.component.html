@@ -1,0 +1,47 @@
+<h1>{{title}}</h1>
+
+<form name="my-ngb-form" #myNgbForm="ngForm" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col">
+      <label class="control-label" for="my-text-input">My Text Input</label>
+      <div class="input-group">
+        <input type="text"
+               class="form-control"
+               id="my-text-input"
+               name="my-text-input"
+               placeholder="my-text-input"
+               [(ngModel)]="myNgbModel.myString"/>
+      </div>
+    </div>
+    <div class="col">
+      <label class="control-label" for="my-date-input">My Date Input</label>
+      <div class="input-group">
+        <input class="form-control border-right-0"
+               id="my-date-input"
+               name="my-date-input"
+               placeholder="ddMMMyyyy"
+               [(ngModel)]="myNgbModel.myDate"
+               ngbDatepicker #myNgbDatePicker="ngbDatepicker"/>
+        <div class="input-group-addon" (click)="myNgbDatePicker.toggle()">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <label class="control-label" for="my-number-input">My Number Input</label>
+      <div class="input-group">
+        <input type="number"
+               class="form-control"
+               id="my-number-input"
+               name="my-number-input"
+               placeholder="2"
+               [(ngModel)]="myNgbModel.myNumber"/>
+      </div>
+    </div>
+  </div>
+  <button type="submit"
+          class="btn btn-primary"
+          id="form-submit">
+    Submit it yo
+  </button>
+</form>

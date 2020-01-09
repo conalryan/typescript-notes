@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+<form name="my-form">
+  <input type="text"
+         id="my-input"
+         name="my-name"
+         [(ngModel)]="myObject.myString" />
+</form>
+
+<div *ngFor="let obj of myArray">
+  <form name="my-form-of-array">
+    <input type="text"
+           id="my-input-of-array"
+           name="my-input-of-array"
+           [(ngModel)]="obj.myString" />
+  </form>
+</div>
