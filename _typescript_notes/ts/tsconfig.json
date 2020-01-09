@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "es5", // ES6/ES2015
+        "outFile": "../js/app.js", // combine all .ts files into single .js file
+        //"outDir": "../js/ // make a .js file for each .ts file. specify path in "" probably best to use with module loader
+        "sourceMap": true // enable debuggin .ts files in browser
+        //"module": "amd" // if using module loader
+    }
+}
