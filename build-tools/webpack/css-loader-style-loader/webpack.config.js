@@ -32,7 +32,8 @@ module.exports = {
          *   applied to the contents of the file.
          */
         test: /\.css$/, // matches all files that end with .css
-        use: [
+        use: [ // Insert descending priority (e.g. css-loader executed frist then style-loader)
+	  'style-loader',
           'css-loader'
         ]
       }

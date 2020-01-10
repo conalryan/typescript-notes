@@ -95,6 +95,24 @@ Add script to packag.json
 }
 ```
 
+Run
+```bash
+yarn run build
+```
+
+- Requires valid JavaScript modules as file/module inputs
+- CSS is not a valid JavaScript module. Therefore, we must transform CSS module to a JS module.
+- Loaders:
+    - Transformations that are applied on the source code of a module.
+    - They allow you to pre-process files as you import or “load” them.
+    - Loaders can transform files from a different language (like TypeScript) to JavaScript, or inline images as data URLs.
+
+CSS Loader
+--------------------------------------------------------------------------------
+- Most loaders and plugins come as separate packages so let’s install it:
+```bash
+yarn add -D css-loader
+```
 - Angular-CLI loads these styles as a separate bundle to the client. So we will do the same.
 - Webpack creates bundles based on the entry points.
 - Add styles specific entry point to the webpack configuration.
@@ -118,29 +136,7 @@ module.exports = {
     ]
   }
 };
-
 ```
-
-Run
-```bash
-yarn run build
-```
-
-- Requires valid JavaScript modules as file/module inputs
-- CSS is not a valid JavaScript module. Therefore, we must transform CSS module to a JS module.
-- Loaders:
-    - Transformations that are applied on the source code of a module.
-    - They allow you to pre-process files as you import or “load” them.
-    - Loaders can transform files from a different language (like TypeScript) to JavaScript, or inline images as data URLs.
-
-
-CSS Loader
---------------------------------------------------------------------------------
-- Most loaders and plugins come as separate packages so let’s install it:
-```bash
-yarn add -D css-loader
-```
-
 
 Style Loader
 --------------------------------------------------------------------------------
@@ -152,6 +148,29 @@ yarn add -D style-loader
 ```
 - The css-loader will generated a JS module that exports styles and style-loader will use them to add to the `<style>` tag in the html.
 
+Add style-loader to webpack-config.js css rules
+```javascript
+module.exports = {
+  entry: {
+    styles: "./styles.css"
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].js" // [name] returns the file name of the source e.g. style.css -> style.js
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // matches all files that end with .css
+        use: [ // Insert descending priority (e.g. css-loader executed frist then style-loader)
+	  'style-loader'
+          'css-loader'
+        ]
+      }
+    ]
+  }
+};
+```
 
 HTML Webpack Plugin
 --------------------------------------------------------------------------------
