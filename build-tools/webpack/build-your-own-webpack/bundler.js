@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const babel = require('@babel/core');
 const babelParser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
 
@@ -22,12 +23,20 @@ function createAsset(fileName) {
       dependencies.push(node.source.value);
     }
   });
+  // Transpile to CommonJs/RequireJs
+  // TODO below code is throwing error
+  // https://github.com/babel/babel/issues/10085
+  // const {code} = babel.transformFromAst(ast, null, {
+  //   presets: ['@babel/env']
+  // });
+  const {code} = babel.transformFromAst(ast);
   // Return an object representing the module dependencies
   const id = COUNTER++;
   return {
     id,
     fileName,
-    dependencies
+    dependencies,
+    code
   };
 }
 
@@ -50,6 +59,36 @@ function createGraph(pathToEntryJs) {
   return queue;
 }
 
-const graph = createGraph('./example/entry.js');
+function bundle(graph) {
+  let modules = '';
+  graph.forEach(mod => {
+    modules += `${mod.id}: [
+      function (require, module, exports) { 
+        ${mod.code}
+      },
+      ${JSON.stringify(mod.mapping)}
+    ]`;
+  });
+  const result = `
+    (function(modules) {
+      function require(id) {
+        const [fn, mapping] = modules[id];
+        function localRequire(relativePath) {
+          return require(mapping[relativePath]);
+        }
+        const module = { exports: {} };
+        fn(localRequire, module, module.exports);
 
+        return module.exports;
+      }
+      require($0);
+    })({${modules}})  
+  `;
+  return result;
+}
+
+const graph = createGraph('./example/entry.js');
 console.log(graph);
+
+const result = bundle(graph);
+console.log(result);
