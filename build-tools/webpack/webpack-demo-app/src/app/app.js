@@ -1,6 +1,11 @@
 import { inputsAreValid } from "./utils/inputs-are-valid";
 import { parseInputs } from "./utils/parse-inputs";
+
 export const run = (alertService, componentService) => {
+  console.log('APP run');
+  console.log(alertService);
+  console.log(componentService);
+
   alertService.hideErrors();
 
   componentService.onClick(() => {
