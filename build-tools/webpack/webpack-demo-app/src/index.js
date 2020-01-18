@@ -6,6 +6,9 @@ import { ComponentService } from "./app/component.service";
 const alertService = new AlertService();
 const componentService = new ComponentService();
 
+console.log('INDEX');
+console.log(alertService);
+console.log(componentService);
+
 run(alertService, componentService);
 
-console.log("J");
