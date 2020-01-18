@@ -10,26 +10,34 @@ let COUNTER = 0;
  * fileName is the path relative to bundler.js
  */
 function createAsset(fileName) {
-  // Read file content
+  // 1. Read file content
   const content = fs.readFileSync(fileName, 'utf-8');
-  // Transform file content to AST
+  
+  // 2. Transform file content to AST
   const ast = babelParser.parse(content, {
     sourceType: 'module'
   });
-  // Traverse AST and collect imports
+  console.log('--> BUNDLER ast:');
+  console.log(ast);
+  
+  // 3. Traverse AST and collect imports
   const dependencies = [];
   traverse(ast, {
     ImportDeclaration: ({node}) => {
       dependencies.push(node.source.value);
     }
   });
-  // Transpile to CommonJs/RequireJs
-  // TODO below code is throwing error
-  // https://github.com/babel/babel/issues/10085
-  // const {code} = babel.transformFromAst(ast, null, {
-  //   presets: ['@babel/env']
-  // });
-  const {code} = babel.transformFromAst(ast);
+
+  // 4. Transform AST
+  let code = {}; 
+  babel.transformFromAst(ast, {}, function(err, result) {
+    console.log('--> BUNDLER babel.transform');
+    console.log(result);
+    console.log(err);
+    code = {...result};
+  });
+
+  // 5. Return
   // Return an object representing the module dependencies
   const id = COUNTER++;
   return {
@@ -59,7 +67,7 @@ function createGraph(pathToEntryJs) {
   return queue;
 }
 
-function bundle(graph) {
+function bundleGraph(graph) {
   let modules = '';
   graph.forEach(mod => {
     modules += `${mod.id}: [
@@ -88,7 +96,9 @@ function bundle(graph) {
 }
 
 const graph = createGraph('./example/entry.js');
+console.log('--> BUNDLER graph');
 console.log(graph);
 
-const result = bundle(graph);
-console.log(result);
+const bundle = bundleGraph(graph);
+console.log('---> BUNDLER bundle');
+console.log(bundle);

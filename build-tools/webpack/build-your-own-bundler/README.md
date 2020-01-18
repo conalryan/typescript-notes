@@ -1,5 +1,10 @@
-[Build Your own Webpack](https://www.youtube.com/watch?v=Gc9-7PBqOC8)
+Build Your own Bundler](https://www.youtube.com/watch?v=Gc9-7PBqOC8)
 ================================================================================
+
+Run
+```bash
+node bundler.js
+```
 
 Bundler
 --------------------------------------------------------------------------------
