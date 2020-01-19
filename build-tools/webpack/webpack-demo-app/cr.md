@@ -34,8 +34,10 @@ https://github.com/Colt/webpack-demo-app/commit/2b11dd3624422ac8f57fced592dd8242
 Tells webpack how to bundle in the correct order i.e. who depends on what
 e.g. 
 ```javascript
+// some-file.js exports myService
 export const myService = () => {};
-// ... another file imports myService
+
+// another-file.js imports myService
 import { myService } from './my-service.js';
 ```
 
@@ -311,7 +313,7 @@ npm install --save-dev file-loader
 yarn add -D file-loader
 ```
 
-Modify commont webpack config
+Modify common webpack config
 ```javascript
 const path = require("path");
 
