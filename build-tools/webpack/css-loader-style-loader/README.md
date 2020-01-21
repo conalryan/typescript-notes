@@ -3,6 +3,8 @@ https://blog.angularindepth.com/this-is-how-angular-cli-webpack-delivers-your-cs
 
 https://github.com/maximusk/this-is-how-angular-cli-webpack-gets-your-CSS-styles-to-the-client
 
+https://medium.com/a-beginners-guide-for-webpack-2/webpack-loaders-css-and-sass-2cc0079b5b3a
+
 # @import in css
 https://developer.mozilla.org/en-US/docs/Web/CSS/%40import
 - The @import CSS at-rule is used to import style rules from other style sheets.
@@ -55,7 +57,7 @@ header span {
 package.json
 ```json
 {
-  "name": "style-loader-css-loader",
+  "name": "css-loader-style-loader",
   "version": "0.0.1",
 }
 ```
@@ -119,11 +121,11 @@ yarn add -D css-loader
 ```javascript
 module.exports = {
   entry: {
-    styles: "./styles.css"
+    mystyles: "./styles.css"
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js" // [name] returns the file name of the source e.g. style.css -> style.js
+    filename: "[name].js" // [name] returns the name used in entry block above e.g. mystyles: './youstyles.css' -> mystyles.js 
   },
   module: {
     rules: [
@@ -138,7 +140,7 @@ module.exports = {
 };
 ```
 
-Style Loader
+[Style Loader](https://github.com/webpack-contrib/style-loader)
 --------------------------------------------------------------------------------
 - CSS loader will generate js bundles but will not use them anywhere.
 - To use them we need to include a style-loader.
@@ -179,4 +181,60 @@ HTML Webpack Plugin
 You can either let the plugin generate an HTML file for you, supply your own template using lodash templates or use your own loader.
 ```bash
 yarn add -D html-webpack-plugin
+```
+
+Update webpack.conf
+```javascript
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  
+  /**
+   * Angular-CLI loads these styles as a separate bundle to the client. So we will do the same.
+   * - Webpack creates bundles based on the entry points.
+   * - Add styles specific entry point to the webpack configuration.
+   */
+  entry: {
+    mystyles: "./src/styles.css"
+  },
+  /**
+   * Specify where the output should go.
+   */
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: "[name].js" // [name] returns the name used in entry block above
+  },
+  /**
+   * Every file/module we want to be used in the bundle webpack expects to be a valid JavaScript module.
+   * And certainly styles.css is not a valid JavaScript module.
+   * So we need something to turn this CSS module into JS module.
+   * And this is where loaders come in.
+   */
+  module: {
+    rules: [
+      {
+        /**
+         * test property:
+         * - Webpack applies that regexp to each request/file and if there’s a match the loaders from the use array are
+         *   applied to the contents of the file.
+         */
+        test: /\.css$/, // matches all files that end with .css
+        use: [
+          'style-loader',
+          'css-loader'
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      /**
+       * By default this plugin generates its own index.html file.
+       * Use template option to specify the path to an existing index.html:
+       */
+      template: "./src/index.html"
+    })
+  ]
+};
 ```

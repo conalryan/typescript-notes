@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   
@@ -8,14 +9,14 @@ module.exports = {
    * - Add styles specific entry point to the webpack configuration.
    */
   entry: {
-    styles: "./styles.css"
+    mystyles: "./src/styles.css"
   },
   /**
    * Specify where the output should go.
    */
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js" // [name] returns the file name of the source e.g. styles.css -> styles.js
+    filename: "[name].js" // [name] returns the name used in entry block above
   },
   /**
    * Every file/module we want to be used in the bundle webpack expects to be a valid JavaScript module.
@@ -32,12 +33,20 @@ module.exports = {
          *   applied to the contents of the file.
          */
         test: /\.css$/, // matches all files that end with .css
-        use: [ // Insert descending priority (e.g. css-loader executed frist then style-loader)
-	  'style-loader',
+        use: [
+          'style-loader',
           'css-loader'
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      /**
+       * By default this plugin generates its own index.html file.
+       * Use template option to specify the path to an existing index.html:
+       */
+      template: "./src/index.html"
+    })
+  ]
 };
-
