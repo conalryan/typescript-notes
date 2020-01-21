@@ -2,7 +2,9 @@
   "name": "build-your-own-webpack",
   "version": "1.0.0",
   "license": "MIT",
-  "script": "build",
+  "scripts": {
+    "build": "webpack"
+  },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/parser": "^7.7.7",
