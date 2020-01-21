@@ -4,7 +4,7 @@
 ```bash
 npm install -g @angular-devkit/schematics-cli
 # or
-yarn add -g @angular-devkit/schematics-cli
+yarn global add @angular-devkit/schematics-cli
 ```
 
 ## Generate new schematic
