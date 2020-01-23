@@ -41,7 +41,7 @@ We can also specify some additional properties for a schematic:
 `package.json` file contains a new `schematics` property that points to the `src/collections.json` file:
 ```json
 ...
-  "schematics": "./src/collection.json",
+"schematics": "./src/collection.json",
 ...
 ```
 
@@ -89,7 +89,7 @@ declare type Rule =
 ## Build and Execute
 ```bash
 yarn build
-schematics .:schematics-hello-world --foo=bar
+schematics .:schematics-hello-world --foo=bar --debug=false
 # Nothing to be done.
 ```
 
@@ -133,11 +133,10 @@ export function schematicsHelloWorld(options: any): Rule {
 - `create()` method accepts the `path` to the file we are creating along with the `content` for the file. 
 ```bash
 yarn build
-schematics .:schematics-hello-world --name="Angular Community" --dry-run
+schematics .:schematics-hello-world --name="Angular Community" --debug=false
 # { name: 'Angular Community' }
 # CREATE /schematics-hello-world.html (37 bytes)
 ```
-Removing --dry-run flag did not create the file. Why not?
 
 
 ## [Unit Tests](https://brianflove.com/2018/12/11/angular-schematics-tutorial/#unit-tests)
