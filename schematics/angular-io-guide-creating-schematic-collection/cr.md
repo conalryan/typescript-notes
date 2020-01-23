@@ -1,3 +1,13 @@
+## Quick start
+```bash
+yarn install
+ng build my-lib
+yarn --cwd projects/my-lib run build
+yarn --cwd projects/my-lib run postbuild
+npm link dist/my-lib
+ng generate my-lib:my-service --name my-data
+```
+
 ## [Creating a schematics collection](https://angular.io/guide/schematics-for-libraries#creating-a-schematics-collection)
 
 ```bash
