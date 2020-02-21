@@ -1,4 +1,5 @@
-import { Observable, Subscriber, Observer, fromEvent, Subject, BehaviorSubject, ReplaySubject, AsyncSubject } from 'rxjs';
+import { Observable, Subscriber, Observer, fromEvent, Subject, BehaviorSubject, ReplaySubject, AsyncSubject, merge, from } from 'rxjs';
+import { map, pluck } from 'rxjs/operators';
 
 /**
  * Observable
@@ -145,6 +146,8 @@ setTimeout(() => {
 /**
  * AsyncSubject
  * Only emits last value and only emits once complete method has been called
+ * cr. If it only emits the last value, then shouldn't it just emit a single value?
+ * What's the point of emitting values that have no impact?
  */
 const asyncSubject: AsyncSubject<string> = new AsyncSubject();
 
@@ -173,4 +176,38 @@ setTimeout(() => {
  * Static functions typically used for creation
  * Instance functions most common operators
  */
-47:46
+
+/**
+ * Merge
+ */
+const observable1 = Observable.create((observer: Observer<any>) => {
+  observer.next('Hello world');
+});
+
+const observable2 = Observable.create((observer: Observer<any>) => {
+  observer.next('Goodbye world');
+});
+
+const mergedObservable: Observable<any> = merge(observable1, observable2);
+
+mergedObservable.subscribe((x: string) => addItem(`merge A: ${x}`));
+
+/**
+ * Map
+ * Take an observable, perform some observation and return a new observable
+ */
+const mappedObserable = observable1.pipe(map((x: string) => x.toUpperCase()));
+mappedObserable.subscribe((x: string) => addItem(`map A: ${x}`));
+
+/**
+ * Pluck
+ */
+from([
+  { first: 'Gary', last: 'Simon', age: '34' },
+  { first: 'Jane', last: 'Simon', age: '36' },
+  { first: 'John', last: 'Doe', age: '22' }
+])
+.pipe(
+  pluck('first')
+)
+.subscribe((first: string) => addItem(`pluck A: ${first}`));
