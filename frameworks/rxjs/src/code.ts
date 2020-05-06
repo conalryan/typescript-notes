@@ -1,5 +1,7 @@
-import { Observable, Subscriber, Observer, fromEvent, Subject, BehaviorSubject, ReplaySubject, AsyncSubject, merge, from } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
+import { interval, Observable, Subscriber, Observer, fromEvent, Subject, BehaviorSubject, ReplaySubject, AsyncSubject, merge, from, concat, of, timer, combineLatest, forkJoin } from 'rxjs';
+import { map, pluck, mapTo } from 'rxjs/operators';
+import { merge as mergeOp } from 'rxjs/operators';
+import { ajax } from 'rxjs/ajax';
 
 /**
  * Observable
@@ -156,7 +158,7 @@ asyncSubject.subscribe(
 );
 
 let j = 1;
-const interval = setInterval(() => asyncSubject.next(''+j++), 100);
+const intervalAsync = setInterval(() => asyncSubject.next(''+j++), 100);
 
 setTimeout(() => {
   asyncSubject.subscribe(
@@ -166,8 +168,9 @@ setTimeout(() => {
 }, 500);
 
 setTimeout(() => {
-  clearInterval(interval);
+  clearInterval(intervalAsync);
 }, 1000);
+
 
 /**
  * Operators
@@ -177,9 +180,6 @@ setTimeout(() => {
  * Instance functions most common operators
  */
 
-/**
- * Merge
- */
 const observable1 = Observable.create((observer: Observer<any>) => {
   observer.next('Hello world');
 });
@@ -188,9 +188,138 @@ const observable2 = Observable.create((observer: Observer<any>) => {
   observer.next('Goodbye world');
 });
 
-const mergedObservable: Observable<any> = merge(observable1, observable2);
+const every3sec$ = interval(3000);
+const every2sec$ = interval(2000);
+const every1sec$ = interval(1000);
 
+const after3sec$ = Observable.create((observer: Observer<any>) => {
+  setTimeout(() => {
+    observer.next('3 sec passed');
+  }, 3000);
+});
+
+const after2sec$ = Observable.create((observer: Observer<any>) => {
+  setTimeout(() => {
+    observer.next('2 sec passed');
+  }, 2000);
+});
+
+
+const after1sec$ = Observable.create((observer: Observer<any>) => {
+  setTimeout(() => {
+    observer.next('1 sec passed');
+  }, 1000);
+});
+
+
+/**
+ * CombineLatest 
+ * combineLatest(observables: ...Observable, project: function): Observable
+ * When any observable emits a value, emit the last emitted value from each.
+ * combineAll can be used to apply combineLatest to emitted observables when a source completes!
+ * 
+ * Why use combineLatest?
+ * operator best used with multiple, long-lived observables that rely on each other for some calculation or determination.
+ * combineLatest will not emit an initial value until each observable emits at least one value.
+ * This is the same behavior as withLatestFrom 
+ * If working with observables that only emit one value, or only require last value of each before completion, 
+ * forkJoin is likely a better option.
+ */
+combineLatest(after3sec$, after2sec$, after1sec$).subscribe(
+  ([after3sec, after2sec, after1sec]) => {
+    console.log(
+      `combineLatest 3 sec : ${after3sec},
+       combineLatest 2 sec: ${after2sec},
+       combineLatest 1 sec: ${after1sec}`
+    );
+  }
+);
+
+
+/**
+ * Concat
+ * concat(observables: ...*): Observable
+ * You can think of concat like a line at a ATM, the next transaction (subscription) cannot start until the previous completes!
+ * If throughput, not order, is a primary concern try merge instead!
+ * (Warning!) concat with source that does not complete
+ */
+concat(
+  of(4, 5, 6),
+  // subscribed after first completes
+  of(1, 2, 3),
+  // subscribed after second completes
+  of(7, 8, 9)
+)
+.subscribe((val: number) => console.log(`concat A: ${val}`)); // 4 , 5, 6, 1, 2, 3, 7, 8, 9
+
+
+/**
+ * ForkJoin
+ * forkJoin(...args, selector : function): Observable
+ * When all observables complete, emit the last emitted value from each.
+ * If you want corresponding emissions from multiple observables as they occur, try zip!
+⚠* If an inner observable does not complete forkJoin will never emit a value!
+ * Why use forkJoin?
+ * Best used with a group of observables and only care about the final emitted value of each.
+ * Common use case: issue multiple requests on page load and only want to take action when a response received for all.
+ * Similar to how you might use Promise.all.
+ * If you have an observable that emits more than one item, and you need previous emissions 
+ * forkJoin is not the correct choice, better off with an operator like combineLatest or zip.
+ */
+forkJoin(
+  {
+    google: ajax.getJSON('https://api.github.com/users/google'),
+    microsoft: ajax.getJSON('https://api.github.com/users/microsoft'),
+    users: ajax.getJSON('https://api.github.com/users')
+  }
+)
+  // { google: object, microsoft: object, users: array }
+  .subscribe((obj: any) => {
+    console.log(obj);
+  });
+
+forkJoin(after3sec$, after2sec$, after1sec$).subscribe(
+  ([after3sec, after2sec, after1sec]) => {
+    console.log(
+      `This won't print, since the obsevables never complete
+       ForkJoin 3 sec : ${after3sec},
+       ForkJoin 2 sec: ${after2sec},
+       ForkJoin 1 sec: ${after1sec}`
+    );
+  }
+);
+
+
+/**
+ * Merge
+ * merge(input: Observable): Observable
+ * Order is not guaranteed, if order is important, use `concat`
+ */
+const mergedObservable: Observable<any> = merge(observable1, observable2);
 mergedObservable.subscribe((x: string) => addItem(`merge A: ${x}`));
+
+
+// Static Merge
+//emit outputs from one observable
+const staticMerge = merge(
+  every3sec$.pipe(mapTo('every 3')),
+  every2sec$.pipe(mapTo('every 2')),
+  every1sec$.pipe(mapTo('every 1'))
+);
+const staticMergeSub = staticMerge.subscribe(val => console.log(`static merge A: ${val}`));
+setTimeout(() => {
+  staticMergeSub.unsubscribe();
+}, 6000);
+
+
+// Instance Merge
+// Note you will need to use the merge operator from rxjs/operators
+const instanceMerge = every3sec$.pipe(mergeOp(every2sec$));
+const instanceMergeSub = instanceMerge.subscribe((val: number) => console.log(`instance merge A: ${val}`));
+setTimeout(() => {
+  instanceMergeSub.unsubscribe();
+}, 6000);
+
 
 /**
  * Map
@@ -198,6 +327,7 @@ mergedObservable.subscribe((x: string) => addItem(`merge A: ${x}`));
  */
 const mappedObserable = observable1.pipe(map((x: string) => x.toUpperCase()));
 mappedObserable.subscribe((x: string) => addItem(`map A: ${x}`));
+
 
 /**
  * Pluck

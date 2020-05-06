@@ -16,6 +16,12 @@ Setup
 
 `yarn add webpack-cli --dev`
 
+
+[RxJs Testing](https://rxjs-dev.firebaseapp.com/guide/testing/marble-testing)
+--------------------------------------------------------------------------------
+
+
+
 [ReactiveX](http://reactivex.io/)
 --------------------------------------------------------------------------------
 
