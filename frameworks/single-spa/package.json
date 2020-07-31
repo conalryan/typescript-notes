@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "single-spa": "^5.5.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
