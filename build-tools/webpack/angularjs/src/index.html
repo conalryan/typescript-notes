@@ -4,8 +4,8 @@
     <base href="/">
     <script src="./app.js"></script>
   </head>
-
-  <body ng-app="appjs" ng-strict-di>
+  <body>
+    <appjs-menu-header></appjs-menu-header>
     <div id="message" ng-controller="MainCtrl as mainCtrl">
       {{ mainCtrl.message }}
     </div>
