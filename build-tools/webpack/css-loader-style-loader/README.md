@@ -1,4 +1,16 @@
 # webpack-css-notes
+
+Quick Guide
+--------------------------------------------------------------------------------
+```bash
+yarn install
+yarn build
+yarn start
+```
+
+References
+--------------------------------------------------------------------------------
+
 https://blog.angularindepth.com/this-is-how-angular-cli-webpack-delivers-your-css-styles-to-the-client-d4adf15c4975
 
 https://github.com/maximusk/this-is-how-angular-cli-webpack-gets-your-CSS-styles-to-the-client
@@ -125,7 +137,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js" // [name] returns the name used in entry block above e.g. mystyles: './youstyles.css' -> mystyles.js 
+    filename: "[name].js" // [name] returns the name used in entry block above e.g. mystyles: './youstyles.css' -> mystyles.js
   },
   module: {
     rules: [
@@ -189,7 +201,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  
+
   /**
    * Angular-CLI loads these styles as a separate bundle to the client. So we will do the same.
    * - Webpack creates bundles based on the entry points.
