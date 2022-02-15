@@ -20,7 +20,7 @@ class MenuHeader {
   }
 
   editUrl() {
-    return `/apps/some-hybrid/#/user/22/edit`;
+    return `/apps/uie-tech-summit/master-class/tables/content?hello=world`;
   }
 
   onClick() {

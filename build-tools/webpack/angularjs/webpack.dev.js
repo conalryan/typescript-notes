@@ -7,7 +7,7 @@ const main = merge(common, {
   mode: "development",
   entry: {
     appjs: "./src/app.js",
-    'appjs-standalone': ["./src/standalone.css", "./src/standalone.js"],
+    // 'appjs-standalone': ["./src/standalone.css", "./src/standalone.js"],
   },
   output: {
     clean: true,
