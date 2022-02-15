@@ -1,14 +1,10 @@
 import angular from 'angular';
 import menu from './menu';
-import './app.css';
 
-angular.module('appjs', [
+angular.module('appjs.standalone', [
   menu.name,
 ])
-  .config(config)
-  .controller('MainCtrl', function() {
-    this.message = 'Hello world from AngularJS';
-  });
+  .config(config);
 
 function config() {
   // $provide.decorator('$browser', [ '$delegate', $browser => {
@@ -20,5 +16,3 @@ function config() {
   // }]);
 }
 config.$inject = [];
-
-angular.bootstrap(document.body, ['appjs'], { strictDi: true });

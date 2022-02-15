@@ -10,7 +10,7 @@ module.exports = merge(common, {
   mode: "production",
   output: {
     clean: true, // replaces CleanWebpackPlugin in Webpack 5
-    filename: "[name].[hash].bundle.js",
+    filename: "[name].[hash].js",
     path: path.resolve(__dirname, "dist")
   },
   optimization: {

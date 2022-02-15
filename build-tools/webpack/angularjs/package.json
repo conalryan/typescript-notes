@@ -22,6 +22,7 @@
   "private": true,
   "scripts": {
     "build:dev": "webpack --config webpack.dev.js",
+    "build:one": "webpack --config webpack.one.js",
     "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server  --config webpack.dev.js --open"
   },

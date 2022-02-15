@@ -1,14 +1,6 @@
 const path = require("path");
 
 module.exports = {
-  /**
-   * By default entry point is an `index.js` file inside `./src`
-   * By default webpack builds into `./dist/main.js`
-   */
-  entry: {
-    main: "./src/app.js",
-    // vendor: "./src/vendor.js"
-  },
   module: {
     rules: [
       {

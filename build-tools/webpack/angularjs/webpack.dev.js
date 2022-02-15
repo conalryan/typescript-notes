@@ -5,8 +5,13 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const main = merge(common, {
   mode: "development",
+  entry: {
+    appjs: "./src/app.js",
+    'appjs-standalone': ["./src/standalone.css", "./src/standalone.js"],
+  },
   output: {
-    filename: "[name].bundle.js",
+    clean: true,
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
   plugins: [
@@ -28,15 +33,15 @@ const main = merge(common, {
   },
 });
 
-const menu = merge(main, {
-  name: "menu",
-  entry: {
-    menu: ["./src/menu/menu-header.css", "./src/menu/menu-header.js"],
-  },
-  output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "dist"),
-  },
-});
+// const standalone = merge(main, {
+//   mode: "development",
+//   entry: {
+//     'appjs-standalone': ["./src/standalone.css", "./src/standalone.js"],
+//   },
+//   output: {
+//     filename: "[name].js",
+//     path: path.resolve(__dirname, "dist"),
+//   },
+// });
 
-module.exports = [main, menu];
+module.exports = main; // [main, standalone];
