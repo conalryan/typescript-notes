@@ -2,21 +2,21 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  
+
   /**
    * Angular-CLI loads these styles as a separate bundle to the client. So we will do the same.
    * - Webpack creates bundles based on the entry points.
    * - Add styles specific entry point to the webpack configuration.
    */
   entry: {
-    mystyles: "./src/styles.scss" // Must start with ./ else it will fail to find styles
+    bundled_styles: "./src/styles.scss" // Must start with ./ else it will fail to find styles
   },
   /**
    * Specify where the output should go.
    */
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js" // [name] returns the name used in entry block above
+    filename: "[name].js" // [name] returns the name used in entry block above i.e. the output will be "bundled_styles.js"
   },
   /**
    * Every file/module we want to be used in the bundle webpack expects to be a valid JavaScript module.

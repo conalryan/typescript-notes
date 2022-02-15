@@ -8,6 +8,8 @@ yarn install
 yarn build:dev
 ```
 
+Structure
+--------------------------------------------------------------------------------
 Default webpack directory structure
 `
 src

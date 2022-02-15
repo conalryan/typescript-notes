@@ -1,15 +1,16 @@
 {
   "name": "hello-world",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT",
   "scripts": {
     "build:dev": "webpack --mode development",
     "start": "http-server -p 8000 -c-1 ./src"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^5.5.0",
     "http-server": "^14.1.0",
+
+    "html-webpack-plugin": "^5.5.0",
+
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2"
   }

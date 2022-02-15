@@ -34,7 +34,9 @@ module.exports = {
          */
         test: /\.css$/, // matches all files that end with .css
         use: [
+          // Creates `style` nodes from JS strings
           'style-loader',
+          // Translates CSS into CommonJS
           'css-loader'
         ]
       }
