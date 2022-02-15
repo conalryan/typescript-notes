@@ -5,8 +5,6 @@ Quick Guide
 --------------------------------------------------------------------------------
 ```bash
 yarn install
-webpack --mode development
-npx webpack
 yarn build:dev
 ```
 
