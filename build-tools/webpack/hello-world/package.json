@@ -1,17 +1,15 @@
 {
-  "name": "hello-world",
-  "version": "0.0.1",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.0",
+    "webpack": "^5.68.0",
+    "webpack-cli": "^4.9.2"
+  },
   "main": "index.js",
+  "name": "hello-world",
   "scripts": {
     "build:dev": "webpack --mode development",
     "start": "http-server -p 8000 -c-1 ./src"
   },
-  "devDependencies": {
-    "http-server": "^14.1.0",
-
-    "html-webpack-plugin": "^5.5.0",
-
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2"
-  }
+  "version": "0.0.1"
 }

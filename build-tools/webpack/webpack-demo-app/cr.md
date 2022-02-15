@@ -32,7 +32,7 @@ By default webpack builds into `./dist/main.js`
 https://github.com/Colt/webpack-demo-app/commit/2b11dd3624422ac8f57fced592dd824230c83693
 
 Tells webpack how to bundle in the correct order i.e. who depends on what
-e.g. 
+e.g.
 ```javascript
 // some-file.js exports myService
 export const myService = () => {};
@@ -45,7 +45,7 @@ import { myService } from './my-service.js';
 https://github.com/Colt/webpack-demo-app/commit/d13f75ab6c6c90e1e7232c2b03fde96b0dd8e6a5
 
 You can call config file whatever you want
-Use `path` to tell webpack where to put bundle. `path` is provided by Node so there is no need to install it. 
+Use `path` to tell webpack where to put bundle. `path` is provided by Node so there is no need to install it.
 
 Change package.json to use config
 ```json
@@ -53,7 +53,7 @@ Change package.json to use config
   "start": "webpack --config webpack.config.js"
 }
 ```
- 
+
  By default `mode` is production and will minify the code.
  Mode tells webpack if to run in prod or dev
  webpack.config.js
@@ -88,7 +88,7 @@ module.exports = {
 ## [Learn Webpack Pt. 5: Loaders, CSS, & SASS](https://www.youtube.com/watch?v=rrMGUnBmjwQ&list=PLblA84xge2_zwxh3XJqy6UVxS60YdusY8&index=5)
 https://github.com/Colt/webpack-demo-app/commit/65c2ac47091e301b3adc5b35a68c1870b16eafb7
 
-### [Loaders](https://webpack.js.org/concepts/loaders/) 
+### [Loaders](https://webpack.js.org/concepts/loaders/)
 Key to get Webpack to load files other than Javascript.
 
 Need `style-loader`, `css-loader` and `sass-loader`
@@ -155,7 +155,7 @@ module.exports = {
   devtool: "none",
   entry: "src/index.js",
   output: {
-    filename: "main.[contentHash].js",
+    filename: "main.[hash].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -195,7 +195,7 @@ module.exports = {
   devtool: "none",
   entry: "src/index.js",
   output: {
-    filename: "main.[contentHash].js",
+    filename: "main.[hash].js",
     path: path.resolve(__dirname, "dist")
   },
   plugins: [new HtmlWebpackPlugin({
@@ -220,7 +220,7 @@ module.exports = {
 https://github.com/Colt/webpack-demo-app/commit/eb66c0dc93141080f5b1abb335ec998a1e91d72e
 
 Split webpack configs into:
-- common, 
+- common,
 - development: include a dev server
 - production: minify, export css into separate file
 
@@ -263,7 +263,7 @@ npm install --save-dev webpack-dev-server
 # or
 yarn add -D webpack-dev-server
 ```
- 
+
 You don't need to include the dev-server in any of the config files, but you will need to add it to package.json
 ```json
 "start": "webpack-dev-server --config webpack.dev.js --open",
@@ -361,7 +361,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   plugins: [new CleanWebpackPlugin()],
@@ -419,7 +419,7 @@ Update webpack production config since the file name will change ('main...' or '
 ```javascript
 // ...
 output: {
-  filename: "[name].[contentHash].bundle.js",
+  filename: "[name].[hash].bundle.js",
   path: path.resolve(__dirname, "dist")
 },
 // ...
@@ -441,13 +441,13 @@ https://github.com/Colt/webpack-demo-app/commit/991f703d058ece361b83180ada43dc5f
 There's a flash of unstyled html when the page loads. This is because it takes time for the browser to parse the javascript, read the styles and inject them into the DOM as a `<style>` tag.
 
 Ideally you want to separate your css from your javascript to improve performace.
- 
+
 It takes time to comples scss so during development you will want to load your styles in your javascript. However, for production you want to compile and separate scss from javascript.
 
 ### mini-css-extract-plugin
 ```bash
 npm instal --save-dev mini-css-extract-plugin
-# or 
+# or
 yarn add -D mini-css-extract-plugin
 ```
 
@@ -462,11 +462,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
     new CleanWebpackPlugin()
   ],
   module: {
@@ -489,10 +489,10 @@ Remove `sytle-loader` from webpack.prod.js and replace with `MiniCssExtractPlugi
 ### optimize-css-assets-webpack-plugin
 ```bash
 npm install --save-dev optimize-css-assets-webpack-plugin
-# or 
+# or
 yarn add -D optimize-css-assets-webpack-plugin
 ```
- 
+
  Only need to minify in production
  Modify webpack.prod.js
  ```javascript
@@ -508,7 +508,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   optimization: {
@@ -517,7 +517,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
     new CleanWebpackPlugin()
   ],
   module: {
@@ -555,7 +555,7 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "production",
   output: {
-    filename: "[name].[contentHash].bundle.js",
+    filename: "[name].[hash].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
   optimization: {
@@ -566,7 +566,7 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
     new CleanWebpackPlugin()
   ],
   module: {
