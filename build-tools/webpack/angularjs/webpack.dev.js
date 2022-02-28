@@ -33,15 +33,34 @@ const main = merge(common, {
   },
 });
 
-// const standalone = merge(main, {
-//   mode: "development",
-//   entry: {
-//     'appjs-standalone': ["./src/standalone.css", "./src/standalone.js"],
-//   },
-//   output: {
-//     filename: "[name].js",
-//     path: path.resolve(__dirname, "dist"),
-//   },
-// });
+const standalone = merge(main, {
+  mode: "development",
+  entry: {
+    'appjs-standalone': "./src/standalone.js",
+  },
+  output: {
+    // chunkFormat: 'module',
+    filename: "[name].js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'standalone.html',
+      template: "./src/standalone.html",
+    }),
+  ],
+  // module: {
+  //   rules: [
+  //     {
+  //       test: /\.css$/,
+  //       use: [
+  //         "style-loader", // 3. Inject styles into DOM
+  //         "css-loader", // 2. Turns css into commonjs
+  //         // "sass-loader" // 1. Turns sass into css
+  //       ],
+  //     },
+  //   ],
+  // },
+});
 
-module.exports = main; // [main, standalone];
+module.exports = [main, standalone];

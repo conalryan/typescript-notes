@@ -1,29 +1,29 @@
 {
   "dependencies": {
-    "angular": "^1.8.2"
+    "angular": "^1.8.0"
   },
   "devDependencies": {
-    "css-loader": "^6.6.0",
-    "css-minimizer-webpack-plugin": "^3.4.1",
-    "file-loader": "^6.2.0",
-    "html-loader": "^3.1.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.5.3",
-    "node-sass": "^7.0.1",
-    "sass-loader": "^12.5.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.68.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4",
-    "webpack-merge": "^5.8.0"
+    "css-loader": "^6.0.0",
+    "css-minimizer-webpack-plugin": "^3.0.0",
+    "file-loader": "^6.0.0",
+    "html-loader": "^3.0.0",
+    "html-webpack-plugin": "^5.0.0",
+    "mini-css-extract-plugin": "^2.0.0",
+    "node-sass": "^7.0.0",
+    "sass-loader": "^12.0.0",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^4.0.0",
+    "webpack-merge": "^5.0.0"
   },
   "main": "main.js",
   "name": "webpack-angularjs",
   "private": true,
   "scripts": {
+    "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js",
     "build:one": "webpack --config webpack.one.js",
-    "build": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "version": "0.0.1"
