@@ -23,7 +23,6 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js",
-    "build:one": "webpack --config webpack.one.js",
     "start": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "version": "0.0.1"
