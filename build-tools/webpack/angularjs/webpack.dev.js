@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(common, {
   mode: "development",
   entry: {
-    appjs: "./src/app.js",
+    appjs: "./src/app/app.js",
   },
   output: {
     clean: true,
