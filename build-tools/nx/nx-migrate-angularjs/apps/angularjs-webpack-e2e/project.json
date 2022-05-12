@@ -1,0 +1,29 @@
+{
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "apps/angularjs-webpack-e2e/protractor.conf.js"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "angularjs-webpack:serve:production"
+        },
+        "development": {
+          "devServerTarget": "angularjs-webpack:serve:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/angularjs-webpack-e2e/**/*.ts"]
+      }
+    }
+  },
+  "implicitDependencies": ["angularjs-webpack"],
+  "tags": []
+}
