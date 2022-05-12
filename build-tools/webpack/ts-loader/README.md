@@ -1,6 +1,4 @@
-# empty-project
-
-Empty project.
+# ts-loader
 
 ## Building and running on localhost
 

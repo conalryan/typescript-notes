@@ -27,10 +27,8 @@
   "private": true,
   "scripts": {
     "build": "webpack --config webpack.prod.js",
-    "build:config": "webpack --config webpack.config.js",
     "build:dev": "webpack --config webpack.dev.js",
-    "start": "webpack-dev-server  --config webpack.dev.js --open",
-    "start:config": "webpack-dev-server  --config webpack.config.js --open"
+    "start": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "version": "0.0.1"
 }

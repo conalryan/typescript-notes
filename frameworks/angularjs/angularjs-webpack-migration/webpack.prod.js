@@ -5,12 +5,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = merge(common, {
   mode: "production",
-  entry: {
-    appjs: "./src/app/app.ts"
-  },
   output: {
     clean: true, // replaces CleanWebpackPlugin in Webpack 5
     filename: "[name].[hash].js",
@@ -35,7 +33,8 @@ module.exports = merge(common, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: "[name].[hash].css" })
+    new MiniCssExtractPlugin({ filename: "[name].[hash].css" }),
+    new CopyWebpackPlugin({ patterns: [{ from: './src/assets', to: 'assets' }] })
   ],
   module: {
     rules: [

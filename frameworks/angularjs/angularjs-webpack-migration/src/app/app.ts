@@ -2,7 +2,7 @@ import * as angular from 'angular';
 import menu from './menu';
 import './app.css';
 
-angular.module('appjs', [
+export default angular.module('appjs', [
   menu.name,
 ])
   .config(config)
