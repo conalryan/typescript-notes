@@ -1,6 +1,6 @@
 import * as angular from 'angular';
 import menu from './menu';
-import './app.css';
+import './app.scss';
 
 export default angular.module('appjs', [
   menu.name,

@@ -15,15 +15,6 @@ module.exports = {
         test: /\.tsx?$/,
         loader: 'ts-loader'
       },
-      // {
-      //   test: /\.js$/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ['env']
-      //     }
-      //   }
-      // },
       // Load js files through Babel
       {
         test: /\.(js|jsx)$/,
@@ -34,5 +25,10 @@ module.exports = {
         },
       },
     ]
-  }
+  },
+  // Warn: without resolve ERROR in ./src/app/app.ts 2:0-26 Module not found: Error: Can't resolve './menu'
+  resolve: {
+    // Add '.ts' and '.tsx' as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
 };

@@ -1,5 +1,5 @@
 import { IDocumentService } from 'angular';
-import './menu-header.css';
+import './menu-header.scss';
 
 const template  = require('./menu-header.html').default;
 
