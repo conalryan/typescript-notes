@@ -2,6 +2,10 @@
   "version": 2,
   "projects": {
     "angularjs-webpack": "apps/angularjs-webpack",
-    "angularjs-webpack-e2e": "apps/angularjs-webpack-e2e"
+    "angularjs-webpack-e2e": "apps/angularjs-webpack-e2e",
+    "angularjs-webpack-migration": "apps/angularjs-webpack-migration",
+    "angularjs-webpack-migration-e2e": "apps/angularjs-webpack-migration-e2e",
+    "phonecat": "apps/phonecat",
+    "phonecat-e2e": "apps/phonecat-e2e"
   }
 }

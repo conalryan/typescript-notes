@@ -1,0 +1,97 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/angularjs-webpack-migration/src",
+  "prefix": "nx-migrate-angularjs",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angularjs-webpack-migration",
+        "index": "apps/angularjs-webpack-migration/src/index.html",
+        "main": "apps/angularjs-webpack-migration/src/main.ts",
+        "polyfills": "apps/angularjs-webpack-migration/src/polyfills.ts",
+        "tsConfig": "apps/angularjs-webpack-migration/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angularjs-webpack-migration/src/favicon.ico",
+          "apps/angularjs-webpack-migration/src/assets"
+        ],
+        "styles": ["apps/angularjs-webpack-migration/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/angularjs-webpack-migration/src/environments/environment.ts",
+              "with": "apps/angularjs-webpack-migration/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angularjs-webpack-migration:build:production"
+        },
+        "development": {
+          "browserTarget": "angularjs-webpack-migration:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angularjs-webpack-migration:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/angularjs-webpack-migration/**/*.ts",
+          "apps/angularjs-webpack-migration/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "apps/angularjs-webpack-migration/src/test.ts",
+        "tsConfig": "apps/angularjs-webpack-migration/tsconfig.spec.json",
+        "karmaConfig": "apps/angularjs-webpack-migration/karma.conf.js",
+        "polyfills": "apps/angularjs-webpack-migration/src/polyfills.ts",
+        "styles": [],
+        "scripts": [],
+        "assets": []
+      }
+    }
+  },
+  "tags": []
+}

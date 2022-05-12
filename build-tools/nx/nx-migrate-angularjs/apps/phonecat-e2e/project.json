@@ -1,0 +1,29 @@
+{
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@angular-devkit/build-angular:protractor",
+      "options": {
+        "protractorConfig": "apps/phonecat-e2e/protractor.conf.js"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "phonecat:serve:production"
+        },
+        "development": {
+          "devServerTarget": "phonecat:serve:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/phonecat-e2e/**/*.ts"]
+      }
+    }
+  },
+  "implicitDependencies": ["phonecat"],
+  "tags": []
+}
