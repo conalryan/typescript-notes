@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nx-migrate-angularjs-root',
+  selector: 'nx-phonecat-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

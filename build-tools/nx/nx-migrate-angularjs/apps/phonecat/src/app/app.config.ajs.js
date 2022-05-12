@@ -9,4 +9,7 @@ export default function(appModule) {
             }).
             otherwise('/phones');
     });
+    appModule.config(['$locationProvider', function($locationProvider) {
+      $locationProvider.hashPrefix('');
+    }]);
 }
