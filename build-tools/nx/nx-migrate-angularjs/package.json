@@ -9,8 +9,6 @@
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
     "@angular/upgrade": "~13.3.7",
-    "akamai-core": "^1.7.22",
-    "akamai-portal": "^3.6.0",
     "angular": "^1.8.0",
     "angular-animate": "1.8.x",
     "angular-clipboard": "^1.7.0",
@@ -28,7 +26,6 @@
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "url-template": "^2.0.6",
-    "uuid": "^2.0.1",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
