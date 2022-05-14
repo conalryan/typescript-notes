@@ -1,7 +1,15 @@
-## Webpack / React Tutorial
+# AngularJS basic module federation setup
 
-This tutorial helps you set up a simple React site bundled with Webpack.
+## Quick start
 
-Follow along step-by-step at [http://www.react.express/webpack](http://www.react.express/webpack)
+1. `npm install`
 
-![Example](react-hello-world.png)
+2. `npm run build`
+
+3. `npm run start`
+
+## Setup
+
+`npm i --save-dev @babel/preset-env babel-loader babel-plugin-angularjs-annotate webpack webpack-cli webpack-dev-server`
+
+`npm i --save angular`

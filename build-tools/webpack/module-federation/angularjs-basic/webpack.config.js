@@ -16,17 +16,13 @@ module.exports = options => {
     module: {
       rules: [
         {
-          test: /.js$/,
+          test: /\.js$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                cacheDirectory: true,
-                presets: ['@babel/react', '@babel/env']
-              }
-            },
-          ],
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['angularjs-annotate'],
+          },
         },
       ],
     },
@@ -38,7 +34,7 @@ module.exports = options => {
         filename: "remoteEntry.js",
         exposes: {
           './web-components': './app.js',
-        },        
+        },
         shared: []
       }),
       new CopyWebpackPlugin({
