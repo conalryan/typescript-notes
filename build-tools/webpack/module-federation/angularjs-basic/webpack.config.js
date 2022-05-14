@@ -3,11 +3,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = options => {
   return {
-    entry: './index.js',
+    entry: './src/main.js',
     output: {
       filename: 'bundle.js',
       publicPath: "auto",
-      uniqueName: "angularjs"
+      uniqueName: "angularjs_basic"
     },
     optimization: {
       moduleIds: 'named',
@@ -33,13 +33,13 @@ module.exports = options => {
         library: { type: "var", name: "angularjs_basic" },
         filename: "remoteEntry.js",
         exposes: {
-          './web-components': './app.js',
+          './web-components': './src/app/app.js',
         },
         shared: []
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: './*.html' }
+          { context: 'src', from: '*.html' }
         ]
       })
     ],
