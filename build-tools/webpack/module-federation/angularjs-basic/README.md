@@ -10,6 +10,6 @@
 
 ## Setup
 
-`npm i --save-dev @babel/preset-env babel-loader babel-plugin-angularjs-annotate webpack webpack-cli webpack-dev-server`
+`npm i --save-dev @babel/core @babel/preset-env babel-loader babel-plugin-angularjs-annotate copy-webpack-plugin webpack webpack-cli webpack-dev-server`
 
 `npm i --save angular`
