@@ -1,0 +1,52 @@
+{
+  "root": "packages/demonodeapp",
+  "sourceRoot": "packages/demonodeapp/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/demonodeapp",
+        "main": "packages/demonodeapp/src/main.ts",
+        "tsConfig": "packages/demonodeapp/tsconfig.app.json",
+        "assets": ["packages/demonodeapp/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/demonodeapp/src/environments/environment.ts",
+              "with": "packages/demonodeapp/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "demonodeapp:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/demonodeapp/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/demonodeapp"],
+      "options": {
+        "jestConfig": "packages/demonodeapp/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

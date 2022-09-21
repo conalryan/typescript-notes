@@ -1,0 +1,7 @@
+{
+  "name": "@npx-create-nx-workspace-preset-core/nx-g-npm-package",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "node index.js"
+  }
+}

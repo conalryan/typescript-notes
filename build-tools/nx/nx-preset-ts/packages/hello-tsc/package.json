@@ -1,0 +1,5 @@
+{
+  "name": "@npx-create-nx-workspace-preset-ts/hello-tsc",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "demonodeapp": "packages/demonodeapp",
+    "demowebapp": "packages/demowebapp",
+    "demowebapp-e2e": "packages/demowebapp-e2e",
+    "hello-tsc": "packages/hello-tsc"
+  }
+}
