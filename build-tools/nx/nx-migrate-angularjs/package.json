@@ -50,7 +50,7 @@
     "@typescript-eslint/parser": "~5.18.0",
     "angular-mocks": "1.8.x",
     "babel-plugin-angularjs-annotate": "^0.10.0",
-    "babelify": "^6.3.0",
+    "babelify": "^10.0.0",
     "brfs": "^1.4.1",
     "browser-sync": "^2.10.1",
     "codelyzer": "^6.0.2",
