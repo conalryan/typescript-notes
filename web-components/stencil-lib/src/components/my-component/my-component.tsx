@@ -3,8 +3,8 @@ import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
-  styleUrl: 'my-component.css',
-  shadow: true,
+  styleUrl: 'my-component.scss',
+  shadow: true
 })
 export class MyComponent {
   /**
@@ -22,11 +22,22 @@ export class MyComponent {
    */
   @Prop() last: string;
 
+  value = 'hello from my comp';
+
+  handleModelChange(event) {
+    console.log('handling model change', event);
+  }
+
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return <div class="test">
+      Hello, World! I'm {this.getText()}
+
+      <st-text-field value={this.value} onModelChange={ev => this.handleModelChange(ev)}></st-text-field>
+
+    </div>;
   }
 }

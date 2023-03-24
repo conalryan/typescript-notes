@@ -20,6 +20,14 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface StTextField {
+        "readonly": boolean;
+        "value": string;
+    }
+}
+export interface StTextFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLStTextFieldElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +36,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLStTextFieldElement extends Components.StTextField, HTMLStencilElement {
+    }
+    var HTMLStTextFieldElement: {
+        prototype: HTMLStTextFieldElement;
+        new (): HTMLStTextFieldElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "st-text-field": HTMLStTextFieldElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +62,14 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface StTextField {
+        "onModelChange"?: (event: StTextFieldCustomEvent<string>) => void;
+        "readonly"?: boolean;
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "st-text-field": StTextField;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +77,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "st-text-field": LocalJSX.StTextField & JSXBase.HTMLAttributes<HTMLStTextFieldElement>;
         }
     }
 }

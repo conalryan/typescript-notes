@@ -73,3 +73,14 @@ The first step for all three of these strategies is to [publish to NPM](https://
 - Run `npm install my-component --save`
 - Add an import to the npm packages `import my-component;`
 - Then you can use the element anywhere in your template, JSX, html etc
+
+---
+
+# cr.
+
+--e2e
+
+`npm run generate my-new-component --style=scss --e2e=none --spec=false`
+
+`npm run generate st-text-field --style=scss --e2e=none --spec=false`
+
