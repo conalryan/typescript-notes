@@ -14,9 +14,7 @@ export namespace Components {
     }
     interface AppRoot {
     }
-    interface StTextField {
-        "readonly": boolean;
-        "value": string;
+    interface AppTextField {
     }
 }
 declare global {
@@ -38,17 +36,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
-    interface HTMLStTextFieldElement extends Components.StTextField, HTMLStencilElement {
+    interface HTMLAppTextFieldElement extends Components.AppTextField, HTMLStencilElement {
     }
-    var HTMLStTextFieldElement: {
-        prototype: HTMLStTextFieldElement;
-        new (): HTMLStTextFieldElement;
+    var HTMLAppTextFieldElement: {
+        prototype: HTMLAppTextFieldElement;
+        new (): HTMLAppTextFieldElement;
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
-        "st-text-field": HTMLStTextFieldElement;
+        "app-text-field": HTMLAppTextFieldElement;
     }
 }
 declare namespace LocalJSX {
@@ -59,16 +57,13 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
-    interface StTextField {
-        "onModelChange"?: (event: CustomEvent<string>) => void;
-        "readonly"?: boolean;
-        "value"?: string;
+    interface AppTextField {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
-        "st-text-field": StTextField;
+        "app-text-field": AppTextField;
     }
 }
 export { LocalJSX as JSX };
@@ -78,7 +73,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "st-text-field": LocalJSX.StTextField & JSXBase.HTMLAttributes<HTMLStTextFieldElement>;
+            "app-text-field": LocalJSX.AppTextField & JSXBase.HTMLAttributes<HTMLAppTextFieldElement>;
         }
     }
 }
