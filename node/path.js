@@ -6,7 +6,7 @@ const path = require('path');
 console.log('> [__dirname]');
 console.log(__dirname);
 ```bash
-/Users/cryan/dev/code/p/typescript/node
+/Users/<uname>/typescript/node
 ```
 
 // path.resolve
@@ -15,7 +15,7 @@ console.log(path.resolve(__dirname, '../'));
 
 ```bash
 > path.resolve(__dirname, '../'
-/Users/cryan/dev/code/p/typescript
+/Users/<uname>/typescript
 ```
 
 // path.join
