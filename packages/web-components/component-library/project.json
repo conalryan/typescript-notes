@@ -1,0 +1,65 @@
+{
+  "name": "web-components-component-library",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "packages/web-components/component-library/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/packages/web-components/component-library",
+        "compiler": "babel",
+        "main": "packages/web-components/component-library/src/main.ts",
+        "tsConfig": "packages/web-components/component-library/tsconfig.app.json",
+        "webpackConfig": "packages/web-components/component-library/webpack.config.js",
+        "assets": [
+          "packages/web-components/component-library/src/favicon.ico",
+          "packages/web-components/component-library/src/assets"
+        ],
+        "index": "packages/web-components/component-library/src/index.html",
+        "baseHref": "/",
+        "styles": ["packages/web-components/component-library/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/web-components/component-library/src/environments/environment.ts",
+              "with": "packages/web-components/component-library/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "options": {
+        "buildTarget": "web-components-component-library:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "web-components-component-library:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/web-components/component-library/**/*.ts"
+        ]
+      }
+    }
+  }
+}
