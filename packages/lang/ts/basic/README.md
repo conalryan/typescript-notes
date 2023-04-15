@@ -1,23 +1,24 @@
-# _typescript_notes
+# lang-ts-basic
 
-TypeScript Maintained by Microsoft
+This library was generated with [Nx](https://nx.dev).
+
+## Building
+
+Run `nx build lang-ts-basic` to build the library.
+
+## TypeScript Maintained by Microsoft
 
 Write code in TypeScript (to be run in Node or Browser) then transpile to JavaScript
 
 ## Install TypeScript
 
-```
-npm install -g typescript
-```
+`yarn add -D typescript`
 
 ## Transpile TypeScript to JavaScript
 Transpiler
 TypeScript > TSC > JavaScript
 
-run command:
-```
-$ tsc someTypeScriptClass.ts
-```
+run command: `tsc someTypeScriptClass.ts`
 
 ## Type definitions
 TypeScipt contains typing for standard JavaScript objects

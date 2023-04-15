@@ -1,15 +1,17 @@
-/// <reference path="MyClass.ts" />
-/// <reference path="MyEnum.ts" />
-/// <reference path="MyInterfaceImpl.ts" />
+import { MyClass } from './MyClass';
+import { MyEnum } from './MyEnum';
+import { MyInterface } from './MyInterface';
+import { MyInterfaceImpl } from './MyInterfaceImpl';
+
 /*
  Above line(s) tell tsc compiler that this class depends on the definition(s) which are found in the above .ts files
  The transplier will place those classes before this class in the transpiled .js file
- Essentially the above class(es) need to be placed before this class otherwise this class will error 
+ Essentially the above class(es) need to be placed before this class otherwise this class will error
  ~ class not found exception
 */
 
-let myClass = new MyClass("first arg", 22, true);
-let myEnumSize = MyEnum.medium
+const myClass = new MyClass("first arg", 22, true);
+const myEnumSize = MyEnum.medium
 myClass.myArrowFunction(myEnumSize);
 
 /**
@@ -22,10 +24,10 @@ function methodAcceptingInterface(myInterface: MyInterface) {
     return "[MyInterface.ts] args passed in: " + myInterface.aString + " " + myInterface.anotherString;
 }
 
-var myInterfaceObj = { aString: "This object satisfies", anotherString: "MyInterface contract", extraField: "This field is ignored" };
-var myInterfaceImpl = new MyInterfaceImpl("This class satisfies", "MyInterface contract", "This field is ignored by interface");
+const myInterfaceObj = { aString: "This object satisfies", anotherString: "MyInterface contract", extraField: "This field is ignored" };
+const myInterfaceImpl = new MyInterfaceImpl("This class satisfies", "MyInterface contract", "This field is ignored by interface");
 
-let element = document.getElementById("content2");
+const element = document.getElementById("content2");
 element.innerHTML = methodAcceptingInterface(myInterfaceObj);
 
 /*=====================================================================================================================
@@ -42,7 +44,7 @@ element.innerHTML = methodAcceptingInterface(myInterfaceObj);
  $ tsc someTypeScriptClass.ts
 
  vs code
- 
+
  search tasks
  cmd + shift + p
 
@@ -55,7 +57,7 @@ element.innerHTML = methodAcceptingInterface(myInterfaceObj);
  Type definitions
  TypeScipt contains typing for standard JavaScript objects
  definitelytype.org
- 
+
  You don't need to add references (i.e. /// reference) to the type of .ts files for Type defintions.
  The transpiler automatically finds them if they are located in the project structure
 

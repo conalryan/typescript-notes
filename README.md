@@ -31,3 +31,6 @@
 
 `nx g @nrwl/web:app hello-world --bundler webpack --directory web-components --e2eTestRunner none --style scss --unitTestRunner none`
 
+## lang
+
+`nx g @nrwl/js:lib basic --directory lang/ts --unitTestRunner none`

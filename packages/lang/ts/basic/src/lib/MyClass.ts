@@ -1,9 +1,13 @@
+import { MyEnum } from "./MyEnum";
+import { MyInterface } from "./MyInterface";
+import { MyInterfaceImpl } from "./MyInterfaceImpl";
+
 /**
  * Can have multiple classes in a single .ts file, however it's better to keep a single class per .ts file.
- * The Compiler can combine all .ts files into a single .js file anyway so there is no benefit to combine them while 
- * develeoping 
+ * The Compiler can combine all .ts files into a single .js file anyway so there is no benefit to combine them while
+ * develeoping
  */
-class MyClass {
+export class MyClass {
 
     // built-in types
     myString: string;
@@ -23,7 +27,7 @@ class MyClass {
     protected myProtectedField; // field is visible in child but not exposed, use getter to expose value
     public myPublicField;
     myDefaultPublicField; // access modifier - default to public if not specified
-   
+
    /**
     * Compiler can create fields automatically from constructor args
     */
@@ -83,7 +87,7 @@ class MyClass {
     setMyNumber(newVal: number) {
         this.myPrivateField = newVal;
     }
-    
+
     /**
      * Setter: Use uppercase name to differentiate from field name
      * Call it:
@@ -106,7 +110,7 @@ class MyClass {
      * Must have '=' after <method-name> and before ()
      * Return type is inferred if not specified
      * Arrow placed after return type if specified, or () if return type not specified
-     * 
+     *
      * This keyword in non-arrow function will point to the object that is calling the function
      * This keyword in arrow function will always point to the object (of the class) the function is in
      */
