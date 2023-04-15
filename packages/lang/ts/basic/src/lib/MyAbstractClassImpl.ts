@@ -1,8 +1,10 @@
+import { MyAbstractClass } from "./MyAbstractClass";
+
 /**
  * Class can only extend one other class
  */
-class MyAbstractClassImpl extends MyAbstractClass {
-    
+export class MyAbstractClassImpl extends MyAbstractClass {
+
     /**
      * Super constructor requires a number
      * Use super keyword to call the base class
@@ -10,7 +12,7 @@ class MyAbstractClassImpl extends MyAbstractClass {
     constructor() {
         super(.1);
     }
-    
+
     /**
      * Overriding abstract class
      */

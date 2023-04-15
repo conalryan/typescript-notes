@@ -1,15 +1,17 @@
+import { MyInterface } from "./MyInterface";
+
 /**
  * Call it:
  *  -> let stringCollection = new MyGenericClass<string>();
  *  -> transpiler will create a new class in the background
  */
-class MyGenericClass<T> {
+export class MyGenericClass<T> {
 
     add(item: T) {
         // add item
     }
 }
 
-class MyGenericDerivedClass<T extends MyInterface> {
-    
+export class MyGenericDerivedClass<T extends MyInterface> {
+
 }
