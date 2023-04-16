@@ -1,6 +1,6 @@
 import '../card/card.element';
 
-export class WebCards extends HTMLElement {
+export class WebCardsElement extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
@@ -36,4 +36,4 @@ export class WebCards extends HTMLElement {
   }
 }
 
-customElements.define('web-cards', WebCards);
+customElements.define('web-cards', WebCardsElement);

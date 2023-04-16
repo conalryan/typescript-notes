@@ -4,7 +4,7 @@ const titles = [
   { title: 'The Hound of the Baskervilles', subtitle: 'A mysterious hound terrifies a town.' }
 ]
 
-export class WebCard extends HTMLElement {
+export class WebCardElement extends HTMLElement {
 
   constructor() {
     super();
@@ -17,9 +17,9 @@ export class WebCard extends HTMLElement {
 
   render() {
     const { shadowRoot } = this;
-    const templateNode = document.getElementById('web-card-template');
-
     shadowRoot.innerHTML = '';
+
+    const templateNode = document.getElementById('web-card-template');
     if (templateNode) {
       titles.forEach(title => {
         const instance = document.importNode((templateNode as HTMLTemplateElement).content, true);
@@ -34,4 +34,4 @@ export class WebCard extends HTMLElement {
   }
 }
 
-customElements.define('web-card', WebCard);
+customElements.define('web-card', WebCardElement);

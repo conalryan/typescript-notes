@@ -69,7 +69,6 @@ It can have it's own styles and javascript.
 ```
 
 ## Lifecycle Methods/Hookds
-
 - constructor
 - connectedCallback()
 - disconnectedCallback()
@@ -101,3 +100,11 @@ It can have it's own styles and javascript.
 - Unsubscribe from DOM events
 - Stop interval timers
 - Unregister all registered callbacks
+
+### attributeChangeCallback
+- Called with attributes are:
+  - added
+  - removed
+  - updated
+  - replaced
+- Attributes are stored in the method `static get observedAttributes`
