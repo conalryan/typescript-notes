@@ -6,6 +6,8 @@ import './lifecycle/lifecycle.element';
 import './modal/modal.element';
 import './modal-ex/modal-ex.element';
 import './home/home.element';
+import './template/template.element';
+import './attributes/web-attributes.element';
 
 export class AppElement extends HTMLElement {
   title = 'web-components-component-library';
@@ -15,6 +17,10 @@ export class AppElement extends HTMLElement {
   // Internals
   // <web-lifecycle />
   // <web-shadow-dom />
+  // <web-template /> -> calling directly will fail unless client provides necessary template
+  // <use-web-template />
+  // <web-attributes />
+  // <pass-attributes />
 
   // Cards
   // <web-card /> -> calling directly will fail unless client provides necessary template
@@ -27,7 +33,7 @@ export class AppElement extends HTMLElement {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
 
-      <web-modal />
+      <pass-attributes />
     </div>`;
   }
 }
