@@ -13,7 +13,7 @@ export class AppElement extends HTMLElement {
   // <web-shadow-dom />
 
   // Cards
-  // <web-card />
+  // <web-card /> -> calling directly will fail unless client provides necessary template
   // <web-cards />
 
   // Modals
@@ -23,7 +23,7 @@ export class AppElement extends HTMLElement {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
 
-      <web-shadow-dom />
+      <web-modal-ex />
     </div>`;
   }
 }

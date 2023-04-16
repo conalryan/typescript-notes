@@ -4,7 +4,7 @@ export class WebCardsElement extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <template id='web-card-template'>
+      <template id='web-card__template'>
         <style>
             .web-card {
                 border: 1px solid #ddd;

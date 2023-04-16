@@ -19,7 +19,7 @@ export class WebCardElement extends HTMLElement {
     const { shadowRoot } = this;
     shadowRoot.innerHTML = '';
 
-    const templateNode = document.getElementById('web-card-template');
+    const templateNode = document.getElementById('web-card__template');
     if (templateNode) {
       titles.forEach(title => {
         const instance = document.importNode((templateNode as HTMLTemplateElement).content, true);
@@ -29,7 +29,7 @@ export class WebCardElement extends HTMLElement {
         shadowRoot.appendChild(instance);
       })
     } else {
-      shadowRoot.innerHTML = '<p>Shadow Root failed. Please try again later.</p>';
+      shadowRoot.innerHTML = '<p>Shadow Root failed. You must pass a template with id="web-card__template".</p>';
     }
   }
 }
