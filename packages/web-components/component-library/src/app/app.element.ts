@@ -8,6 +8,7 @@ import './modal-ex/modal-ex.element';
 import './home/home.element';
 import './template/template.element';
 import './attributes/web-attributes.element';
+import './styling/styling.element';
 
 export class AppElement extends HTMLElement {
   title = 'web-components-component-library';
@@ -16,11 +17,15 @@ export class AppElement extends HTMLElement {
 
   // Internals
   // <web-lifecycle />
+  // <web-attach-shadow-dom />
   // <web-shadow-dom />
   // <web-template /> -> calling directly will fail unless client provides necessary template
   // <use-web-template />
   // <web-attributes />
   // <pass-attributes />
+  // <web-styling-inline />
+  // <web-styling-import />
+  // <web-styling-shadow-dom />
 
   // Cards
   // <web-card /> -> calling directly will fail unless client provides necessary template
@@ -33,7 +38,7 @@ export class AppElement extends HTMLElement {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
 
-      <pass-attributes />
+      <web-styling-shadow-dom />
     </div>`;
   }
 }
