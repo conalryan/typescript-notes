@@ -22,7 +22,8 @@ export class AppElement extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
-      <web-lifecycle />
+
+      <web-shadow-dom />
     </div>`;
   }
 }
