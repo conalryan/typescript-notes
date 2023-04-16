@@ -1,12 +1,9 @@
 import '../modal/modal.element';
 
 export class WebModalExElement extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-  }
 
   connectedCallback(): void {
+    console.log('web-modal-ex::connectedCallback');
     this.render();
   }
 

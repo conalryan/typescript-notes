@@ -9,13 +9,15 @@ export class WebCardElement extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
+    console.log('web-card::constructor');
   }
 
   connectedCallback() {
+    console.log('web-card::connectedCallback');
     this.render();
   }
 
-  render() {
+  private render() {
     const { shadowRoot } = this;
     shadowRoot.innerHTML = '';
 
