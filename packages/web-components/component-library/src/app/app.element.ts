@@ -3,10 +3,14 @@ import './card/card.element';
 import './shadow-dom/shadow-dom.element';
 import './cards/cards.element';
 import './lifecycle/lifecycle.element';
+import './modal/modal.element';
 import './modal-ex/modal-ex.element';
+import './home/home.element';
 
 export class AppElement extends HTMLElement {
   title = 'web-components-component-library';
+
+  // <web-home />
 
   // Internals
   // <web-lifecycle />
@@ -23,7 +27,7 @@ export class AppElement extends HTMLElement {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
 
-      <web-modal-ex />
+      <web-modal />
     </div>`;
   }
 }
