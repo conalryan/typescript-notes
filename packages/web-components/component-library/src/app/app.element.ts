@@ -1,46 +1,26 @@
 import './app.element.scss';
 import './card/card.element';
-import './shadow-dom/shadow-dom.element';
 import './cards/cards.element';
-import './lifecycle/lifecycle.element';
 import './modal/modal.element';
 import './modal-ex/modal-ex.element';
-import './home/home.element';
-import './template/template.element';
-import './attributes/web-attributes.element';
-import './styling/styling.element';
 
 export class AppElement extends HTMLElement {
   title = 'web-components-component-library';
-
-  // <web-home />
-
-  // Internals
-  // <web-lifecycle />
-  // <web-attach-shadow-dom />
-  // <web-shadow-dom />
-  // <web-template /> -> calling directly will fail unless client provides necessary template
-  // <use-web-template />
-  // <web-attributes />
-  // <pass-attributes />
-  // <web-styling-inline />
-  // <web-styling-import />
-  // <web-styling-shadow-dom />
 
   // Cards
   // <web-card /> -> calling directly will fail unless client provides necessary template
   // <web-cards />
 
   // Modals
+  // <web-modal /> -> calling directly will fail unless client provides necessary template
   // <web-modal-ex />
 
   connectedCallback() {
     this.innerHTML = `<div>
       <h1>${this.title}</h1>
 
-      <web-styling-shadow-dom />
+      <web-modal-ex />
     </div>`;
   }
 }
-
-customElements.define('typescript-notes-root', AppElement);
+customElements.define('web-component-library', AppElement);
