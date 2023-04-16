@@ -108,3 +108,17 @@ It can have it's own styles and javascript.
   - updated
   - replaced
 - Attributes are stored in the method `static get observedAttributes`
+
+### adoptedCallback
+- Called when element is adopted into a new document
+- An element can be adopted by calling `document.adoptNode(element)`
+- It can help interact with owner document, main document, or other elements
+- Element is not destroyed and created again wile adopting, so the constructor will not be called
+
+## Styling
+
+### Ways to Add Global Styling to Shadow DOM
+- Using @import
+- Using a web component library like Polymer or SkateJS
+- Custom properties
+- Links in the shadow DOM e.g. `<link rel="stylesheet" href="/assets/some-file.css" />` placed within the `<template>` tag.
