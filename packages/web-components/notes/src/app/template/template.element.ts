@@ -16,6 +16,7 @@ export class WebTemplateElement extends HTMLElement {
 
     const template = document.getElementById('web-template__template') as HTMLTemplateElement;
     if (template) {
+      // TODO: What is the difference between importNode and template.content.clone()?
       const instance = document.importNode(template.content, true);
       instance.querySelector('.web-template__title').innerHTML = 'Title injected from component';
       instance.querySelector('.web-template__body').innerHTML = 'Body injected from component';
