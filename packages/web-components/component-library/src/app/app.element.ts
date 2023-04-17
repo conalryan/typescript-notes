@@ -5,8 +5,6 @@ import './modal/modal.element';
 import './modal-ex/modal-ex.element';
 
 export class AppElement extends HTMLElement {
-  title = 'web-components-component-library';
-
   // Cards
   // <web-card /> -> calling directly will fail unless client provides necessary template
   // <web-cards />
@@ -16,11 +14,10 @@ export class AppElement extends HTMLElement {
   // <web-modal-ex />
 
   connectedCallback() {
-    this.innerHTML = `<div>
-      <h1>${this.title}</h1>
-
-      <web-modal-ex />
-    </div>`;
+    this.innerHTML = `
+      <header class='navbar'>Sherlock Holmes - The Blog</header>
+      <web-cards />
+    `;
   }
 }
 customElements.define('web-component-library', AppElement);
