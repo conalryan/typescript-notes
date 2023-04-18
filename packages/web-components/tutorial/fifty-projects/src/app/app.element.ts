@@ -2,6 +2,8 @@ import './app.element.scss';
 import './expanding-cards/expanding-cards.element';
 import './progress-steps/progress-steps.element';
 import './rotating-navigation/rotating-navigation.element';
+import './hidden-search/hidden-search.element';
+import './blurry-loading/blurry-loading.element';
 
 export class AppElement extends HTMLElement {
   public static observedAttributes = [];
@@ -12,7 +14,11 @@ export class AppElement extends HTMLElement {
 
       <!-- <progress-steps /> -->
 
-      <rotating-navigation />
+      <!-- <rotating-navigation /> -->
+
+      <!-- <hidden-search /> -->
+
+      <blurry-loading />
     `;
   }
 }
