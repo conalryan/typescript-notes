@@ -1,5 +1,5 @@
 
-.container {
+.rotating-navigation__container {
   background-color: #fafafa;
   min-height: 100vh;
   padding: 50px;
@@ -12,13 +12,13 @@
   }
 }
 
-.circle-container {
+.rotating-navigation__circle-container {
   position: fixed;
   top: -100px; // so half circle off screen
   left: -100px; // so half circle off screen
 }
 
-.circle {
+.rotating-navigation__circle {
   background-color: #ff7979;
   border-radius: 50%;
   height: 200px;
@@ -27,11 +27,11 @@
   width: 200px;
 }
 
-.container.show-nav .circle {
+.rotating-navigation__container.show-nav .circle {
   transform: rotate(-70deg);
 }
 
-.circle button {
+.rotating-navigation__circle button {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -43,21 +43,21 @@
   color: #fff;
 }
 
-.circle button:focus {
+.rotating-navigation__circle button:focus {
   outline: none;
 }
 
-.circle button#open {
+.rotating-navigation__circle button#open {
   left: 60%;
 }
 
-.circle button#close {
+.rotating-navigation__circle button#close {
   top: 60%;
   transform: rotate(90deg);
   transform-origin: top left;
 }
 
-.container.show-nav + nav li {
+.rotating-navigation__container.show-nav + nav li {
   transform: translateX(0);
   transition-delay: 0.3s;
 }
@@ -97,7 +97,7 @@ nav ul li + li + li {
   transform: translateX(-200%);
 }
 
-nav a{
+nav a {
   color: #fafafa;
   text-decoration: none;
   transition: all 0.5s;
@@ -108,25 +108,25 @@ nav a:hover {
   font-weight: bold;
 }
 
-.content img {
+.rotating-navigation__content img {
   max-width: 100%;
 }
 
-.content {
+.rotating-navigation__content {
   max-width: 1000px;
   margin: 50px auto;
 }
 
-.content h1 {
+.rotating-navigation__content h1 {
   margin: 0;
 }
 
-.content small {
+.rotating-navigation__content small {
   color: #555;
   font-style: italic;
 }
 
-.content p {
+.rotating-navigation__content p {
   color: #333;
   line-height: 1.5;
 }

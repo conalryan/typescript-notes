@@ -9,9 +9,9 @@ export class RotatingNavigationElement extends HTMLElement {
 
   private render(): void {
     this.innerHTML = `
-      <div class="container">
-        <div class="circle-container">
-          <div class="circle">
+      <div class="rotating-navigation__container">
+        <div class="rotating-navigation__circle-container">
+          <div class="rotating-navigation__circle">
             <button id="close">
               <i class="fas fa-times"></i>
             </button>
@@ -21,7 +21,7 @@ export class RotatingNavigationElement extends HTMLElement {
           </div>
         </div>
 
-        <div class="content">
+        <div class="rotating-navigation__content">
           <h1>Amazing Article</h1>
           <small>Florin Pop</small>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in ratione dolores cupiditate, maxime aliquid impedit dolorem nam dolor omnis atque fuga labore modi veritatis porro laborum minus, illo, maiores recusandae cumque ipsa quos. Tenetur, consequuntur mollitia labore pariatur sunt quia harum aut. Eum maxime dolorem provident natus veritatis molestiae cumque quod voluptates ab non, tempore cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure aliquam rerum sint nam quas dolor dignissimos in error placeat quae temporibus minus optio eum soluta cupiditate! Cupiditate saepe voluptates laudantium. Ducimus consequuntur perferendis consequatur nobis exercitationem molestias fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.</p>
@@ -45,7 +45,7 @@ export class RotatingNavigationElement extends HTMLElement {
   private listen(): void {
     const close = document.getElementById('close');
     const open = document.getElementById('open');
-    const container = document.querySelector('.container');
+    const container = document.querySelector('.rotating-navigation__container');
     close.addEventListener('click', () => container.classList.remove('show-nav'));
     open.addEventListener('click', () => container.classList.add('show-nav'));
   }

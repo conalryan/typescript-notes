@@ -1,11 +1,11 @@
-.expanding-cards-container {
+.expanding-cards__container {
   display: flex;
   height: 90vh;
   margin: auto;
   width: 90vw;
 }
 
-.expanding-cards-panel {
+.expanding-cards__panel {
   border-radius: 10px;
   color: #fff;
   cursor: pointer;
@@ -37,12 +37,12 @@
 }
 
 @media (max-width: 1280px) {
-  .expanding-cards-container {
+  .expanding-cards__container {
     width: 100vw;
   }
 
-  .expanding-cards-panel:nth-of-type(4),
-  .expanding-cards-panel:nth-of-type(5) {
+  .expanding-cards__panel:nth-of-type(4),
+  .expanding-cards__panel:nth-of-type(5) {
     display: none;
   }
 }
