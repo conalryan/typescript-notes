@@ -36,6 +36,7 @@
 
 `nx g @nrwl/web:app practical-web-components --bundler webpack --directory web-components/tutorial --e2eTestRunner none --style scss --unitTestRunner none`
 
+`nx g @nrwl/web:app fifty-projects --bundler webpack --directory web-components/tutorial --e2eTestRunner none --style scss --unitTestRunner none`
 
 ## lang
 `nx g @nrwl/js:lib basic --directory lang/ts --unitTestRunner none`

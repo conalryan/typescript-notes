@@ -122,3 +122,41 @@ It can have it's own styles and javascript.
 - Using a web component library like Polymer or SkateJS
 - Custom properties
 - Links in the shadow DOM e.g. `<link rel="stylesheet" href="/assets/some-file.css" />` placed within the `<template>` tag.
+
+
+## Event Listener
+e.g. mouse clicks
+
+- Event listeners can be added by selecting the element and then using addEventListener(<name>, function) to it
+- The <name> can then be called using methods like `onclick` `onhover` etc
+
+### Dispatching Custom Events
+- Create a custom event using `new CustomEvent(<name>, object)`
+- Event listeners can be added by selecting the element and then using addEventListener(<name>, function) to it
+- Custom events can be dispatched via `dispatchEvent(customEvent)`
+
+## Animation
+
+### CSS
+```css
+.loader {
+  border: 16px solid #F3F3F3;
+  border-top: 16px solid #3498DB;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animate: spin 2s linear infinte;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg) };
+  100% { transform: rotate(100deg) };
+}
+```
+
+### Animate the element using JS in the following steps:
+- Create a variable (array of objects) storing various phases of the animation
+- Create another variable storing the timing and duration of the phases
+- Start the animation by accessing the element and calling the above two variables with animate()
+
+
