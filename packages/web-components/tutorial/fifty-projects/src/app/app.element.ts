@@ -6,6 +6,7 @@ import './hidden-search/hidden-search.element';
 import './blurry-loading/blurry-loading.element';
 import './scroll-animation/scroll-animation.element';
 import './form-input-wave/form-input-wave.element';
+import './event-keycodes/event-keycodes.element';
 
 export class AppElement extends HTMLElement {
   public static observedAttributes = [];
@@ -24,7 +25,9 @@ export class AppElement extends HTMLElement {
 
       <!-- <scroll-animation /> -->
 
-      <form-input-wave />
+      <!-- <form-input-wave /> -->
+
+      <event-keycodes />
     `;
   }
 }

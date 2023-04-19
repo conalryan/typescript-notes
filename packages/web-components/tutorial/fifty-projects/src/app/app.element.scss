@@ -56,16 +56,30 @@
 
 
 // form-input-wave
+// @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+// body {
+//   align-items: center;
+//   background-color: steelblue;
+//   color: #fff;
+//   display: flex;
+//   flex-direction: column;
+//   font-family: 'Muli', sans-serif;
+//   height: 100vh;
+//   justify-content: center;
+//   margin: 0;
+//   overflow: hidden;
+// }
+
+// event-keycodes
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 body {
   align-items: center;
-  background-color: steelblue;
-  color: #fff;
+  background-color: #e1e1e1;
   display: flex;
-  flex-direction: column;
   font-family: 'Muli', sans-serif;
   height: 100vh;
   justify-content: center;
   margin: 0;
   overflow: hidden;
+  text-align: center;
 }
