@@ -1,0 +1,19 @@
+.display__container {
+  border: 3px solid #00f;
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  .display__target {
+    border: 3px solid #00f;
+    display: block; // block, inline-block, flex, inline-flex, grid
+  }
+
+  .child {
+    background-color: #ccf;
+    border: 1px solid #ababab;
+    color: #000;
+    display: inline-block;
+    padding: 0.5em 1em;
+  }
+}
