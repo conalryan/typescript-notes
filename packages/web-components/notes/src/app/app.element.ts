@@ -1,4 +1,4 @@
-import './app.element.scss';
+// import './app.scss';
 import './attributes/web-attributes.element';
 import './lifecycle/lifecycle.element';
 import './shadow-dom/shadow-dom.element';
@@ -6,7 +6,9 @@ import './styling/styling.element';
 import './template/template.element';
 
 export class AppElement extends HTMLElement {
-  public static observedAttributes = [];
+  static observedAttributes = [];
+
+  title = 'Web Component Notes';
 
   // <web-attributes /> -> will print null
   // <pass-attributes />
@@ -23,13 +25,21 @@ export class AppElement extends HTMLElement {
   // <web-styling-import />
   // <web-styling-shadow-dom />
 
-  title = 'Web Component Notes';
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
 
-  connectedCallback() {
-    this.innerHTML = `
+  connectedCallback(): void {
+    this.render();
+  }
+
+  private render(): void {
+    this.shadowRoot.innerHTML = `
+      <link rel="stylesheet" href="/assets/app.scss" />
       <h1>${this.title}</h1>
       <web-styling-shadow-dom />
     `;
   }
 }
-customElements.define('web-component-notes-root', AppElement);
+customElements.define('app-root', AppElement);

@@ -4,6 +4,8 @@ import './progress-steps/progress-steps.element';
 import './rotating-navigation/rotating-navigation.element';
 import './hidden-search/hidden-search.element';
 import './blurry-loading/blurry-loading.element';
+import './scroll-animation/scroll-animation.element';
+import './form-input-wave/form-input-wave.element';
 
 export class AppElement extends HTMLElement {
   public static observedAttributes = [];
@@ -18,8 +20,12 @@ export class AppElement extends HTMLElement {
 
       <!-- <hidden-search /> -->
 
-      <blurry-loading />
+      <!-- <blurry-loading /> -->
+
+      <!-- <scroll-animation /> -->
+
+      <form-input-wave />
     `;
   }
 }
-customElements.define('fifty-projects-root', AppElement);
+customElements.define('app-root', AppElement);
