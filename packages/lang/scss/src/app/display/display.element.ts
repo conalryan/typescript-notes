@@ -1,5 +1,8 @@
 import './display.scss';
 
+/**
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/display
+ */
 export class DisplayElement extends HTMLElement {
 
   container: HTMLElement;
