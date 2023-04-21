@@ -27,6 +27,9 @@
       "@typescript-notes/design-patterns/reactor": [
         "packages/design-patterns/reactor/src/index.ts"
       ],
+      "@typescript-notes/lang/algorithms": [
+        "packages/lang/algorithms/src/index.ts"
+      ],
       "@typescript-notes/lang/ts/basic": [
         "packages/lang/ts/basic/src/index.ts"
       ],

@@ -40,7 +40,10 @@
 
 ## lang
 `nx g @nrwl/js:lib basic --directory lang/ts --unitTestRunner none`
+
 `nx g @nrwl/web:app scss --directory lang --unitTestRunner none`
+
+`nx g @nrwl/js:lib algorithms --directory lang`
 
 ## design-patterns
 `nx g @nrwl/js:lib functional-programming --bundler tsc --directory design-patterns --unitTestRunner jest`
