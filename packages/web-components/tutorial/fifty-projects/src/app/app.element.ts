@@ -23,11 +23,11 @@ export class AppElement extends HTMLElement {
 
       <!-- <blurry-loading /> -->
 
-      <!-- <scroll-animation /> -->
+      <scroll-animation />
 
       <!-- <form-input-wave /> -->
 
-      <event-keycodes />
+      <!-- <event-keycodes /> -->
     `;
   }
 }
