@@ -60,3 +60,50 @@
 `nx g @nrwl/node:lib commonjs --directory node --unitTestRunner none`
 
 `nx g @nrwl/node:lib esm --directory node --unitTestRunner none`
+
+---
+
+# cleanup
+
+## design-patterns
+
+- functional-programming
+- iterator
+- observer
+- reactor
+
+## lang
+
+- algorithm
+- ts
+
+## node
+
+- commonjs
+- esm
+
+## web-components
+
+- component-lbrary
+- hello-world
+- notes
+- tutorial
+
+---
+
+## remove
+
+`nx g @nrwl/web:app scss --directory lang --unitTestRunner none`
+
+`nx g @nrwl/workspace:remove scss --directory lang`
+
+ >  NX   Cannot find configuration for 'scss'
+
+`nx g @nrwl/workspace:remove scss`
+
+ >  NX   Cannot find configuration for 'scss'
+
+ `nx g @nrwl/workspace:remove lang/scss`
+
+ >  NX   Cannot find configuration for 'lang/scss'
+
