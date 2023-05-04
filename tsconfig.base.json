@@ -15,23 +15,17 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@typescript-notes/design-patterns/functional-programming": [
-        "packages/design-patterns/functional-programming/src/index.ts"
-      ],
       "@typescript-notes/design-patterns/iterator": [
         "packages/design-patterns/iterator/src/index.ts"
       ],
       "@typescript-notes/design-patterns/observer": [
         "packages/design-patterns/observer/src/index.ts"
       ],
-      "@typescript-notes/design-patterns/reactor": [
-        "packages/design-patterns/reactor/src/index.ts"
-      ],
       "@typescript-notes/lang/algorithms": [
         "packages/lang/algorithms/src/index.ts"
       ],
-      "@typescript-notes/lang/ts/basic": [
-        "packages/lang/ts/basic/src/index.ts"
+      "@typescript-notes/lang/data-structures": [
+        "packages/lang/data-structures/src/index.ts"
       ],
       "@typescript-notes/node/commonjs": [
         "packages/node/commonjs/src/index.ts"

@@ -1,0 +1,26 @@
+{
+  "name": "lang-data-structures",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/lang/data-structures/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/lang/data-structures",
+        "main": "packages/lang/data-structures/src/index.ts",
+        "tsConfig": "packages/lang/data-structures/tsconfig.lib.json",
+        "assets": ["packages/lang/data-structures/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/lang/data-structures/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

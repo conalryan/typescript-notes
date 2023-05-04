@@ -66,44 +66,43 @@
 # cleanup
 
 ## design-patterns
-
 - functional-programming
 - iterator
 - observer
 - reactor
 
-## lang
+```bash
+nx build design-patterns-functional-programming
 
+nx build design-patterns-iterator
+
+nx build design-patterns-observer
+
+nx build design-patterns-reactor
+```
+
+## lang
 - algorithm
 - ts
 
-## node
+```bash
+nx build lang-algorithms
 
+nx build lang-ts-basic
+```
+
+## node
 - commonjs
 - esm
 
-## web-components
+```bash
+nx build node-commonjs
 
+nx build node-esm
+```
+
+## web-components
 - component-lbrary
 - hello-world
 - notes
 - tutorial
-
----
-
-## remove
-
-`nx g @nrwl/web:app scss --directory lang --unitTestRunner none`
-
-`nx g @nrwl/workspace:remove scss --directory lang`
-
- >  NX   Cannot find configuration for 'scss'
-
-`nx g @nrwl/workspace:remove scss`
-
- >  NX   Cannot find configuration for 'scss'
-
- `nx g @nrwl/workspace:remove lang/scss`
-
- >  NX   Cannot find configuration for 'lang/scss'
-
