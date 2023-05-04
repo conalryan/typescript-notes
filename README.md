@@ -34,25 +34,15 @@
 
 `nx g @nrwl/web:app notes --bundler webpack --directory web-components --e2eTestRunner none --style scss --unitTestRunner none`
 
-`nx g @nrwl/web:app practical-web-components --bundler webpack --directory web-components/tutorial --e2eTestRunner none --style scss --unitTestRunner none`
-
-`nx g @nrwl/web:app fifty-projects --bundler webpack --directory web-components/tutorial --e2eTestRunner none --style scss --unitTestRunner none`
-
 ## lang
-`nx g @nrwl/js:lib basic --directory lang/ts --unitTestRunner none`
-
-`nx g @nrwl/web:app scss --directory lang --unitTestRunner none`
+`nx g @nrwl/js:lib data-structures --directory lang --unitTestRunner jest`
 
 `nx g @nrwl/js:lib algorithms --directory lang`
 
 ## design-patterns
-`nx g @nrwl/js:lib functional-programming --bundler tsc --directory design-patterns --unitTestRunner jest`
-
 `nx g @nrwl/js:lib iterator --bundler tsc --directory design-patterns --unitTestRunner jest`
 
 `nx g @nrwl/js:lib observer --bundler tsc --directory design-patterns --unitTestRunner jest`
-
-`nx g @nrwl/js:lib reactor --bundler tsc --directory design-patterns --unitTestRunner jest`
 
 ## node
 `yarn add -D @nrwl/node`
@@ -60,49 +50,3 @@
 `nx g @nrwl/node:lib commonjs --directory node --unitTestRunner none`
 
 `nx g @nrwl/node:lib esm --directory node --unitTestRunner none`
-
----
-
-# cleanup
-
-## design-patterns
-- functional-programming
-- iterator
-- observer
-- reactor
-
-```bash
-nx build design-patterns-functional-programming
-
-nx build design-patterns-iterator
-
-nx build design-patterns-observer
-
-nx build design-patterns-reactor
-```
-
-## lang
-- algorithm
-- ts
-
-```bash
-nx build lang-algorithms
-
-nx build lang-ts-basic
-```
-
-## node
-- commonjs
-- esm
-
-```bash
-nx build node-commonjs
-
-nx build node-esm
-```
-
-## web-components
-- component-lbrary
-- hello-world
-- notes
-- tutorial
