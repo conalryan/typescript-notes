@@ -33,4 +33,6 @@
 
  `nx g @nrwl/js:lib data-structures --directory lang --unitTestRunner jest `
 
+## web
 
+ `nx g @nrwl/web:app hello-world --directory build-tools/webpack --bundler webpack --unitTestRunner jest`
