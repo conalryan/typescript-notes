@@ -37,4 +37,12 @@ export const appRoutes: Route[] = [
     path: 'http-ex',
     loadChildren: () => import('./http-ex/http-ex.module').then(m => m.HttpExModule),
   },
+  {
+    path: 'lifecycle-hooks',
+    loadChildren: () => import('./lifecycle-hooks/my-lifecycle-hooks.module').then(m => m.MyLifecycleHooksModule),
+  },
+  {
+    path: 'modules',
+    loadChildren: () => import('./modules/ex.module').then(m => m.ExModule),
+  },
 ];

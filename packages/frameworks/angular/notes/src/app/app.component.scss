@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.nav {
+  background-color: #333;
+  color: #fff;
+  height: 50px;
+  padding: 0 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+
+    .logo {
+
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+    }
+
+    li {
+      margin: 0 8px;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;;
+    }
+  }
+}
+
+
+.container {
+  height: calc(100vh - 50px);
+  margin: 70px auto;
+  width: 1092px;
+}
