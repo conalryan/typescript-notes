@@ -1,1 +1,25 @@
-<router-outlet></router-outlet>
+<nav class="nav">
+  <div class="nav__container">
+    <div class="logo">logo</div>
+    <ul>
+      <li><a routerLink="change-detection" routerLinkActive="change-detection">change-detection</a></li>
+      <li><a routerLink="css-hacks" routerLinkActive="css-hacks">css-hacks</a></li>
+      <li><a routerLink="directives" routerLinkActive="directives">directives</a></li>
+      <li><a routerLink="dom-abstraction" routerLinkActive="dom-abstraction">dom-abstraction</a></li>
+      <li><a routerLink="dom-manipulation" routerLinkActive="dom-manipulation">dom-manipulation</a></li>
+      <li><a routerLink="dynamic-components" routerLinkActive="dynamic-components">dynamic-components</a></li>
+      <li><a routerLink="expression-changed-after-check" routerLinkActive="expression-changed-after-check">expression-changed-after-check</a></li>
+      <li><a routerLink="forms" routerLinkActive="forms">forms</a></li>
+      <li><a routerLink="http-ex" routerLinkActive="http-ex">http-ex</a></li>
+      <li><a routerLink="lifecycle-hooks" routerLinkActive="lifecycle-hooks">lifecycle-hooks</a></li>
+      <li><a routerLink="modules" routerLinkActive="modules">modules</a></li>
+      <li><a routerLink="testing-notes" routerLinkActive="testing-notes">testing-notes</a></li>
+      <li><a routerLink="validators" routerLinkActive="validators">validators</a></li>
+      <li><a routerLink="zone" routerLinkActive="zone">zone</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
