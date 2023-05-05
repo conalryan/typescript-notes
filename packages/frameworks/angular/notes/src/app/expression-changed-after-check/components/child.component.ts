@@ -14,7 +14,7 @@ import {
 } from "@angular/core";
 import { SharedService } from "../service/shared.service";
 import { ExpressionChangedAfterCheckComponent } from "../container/expression-changed-after-check.component";
-import { HttpExService } from "../../../../../../../../old-workspace/frameworks/angular/dictionary/src/app/http-ex/http-ex.service";
+import { HttpExService } from "../../http-ex/http-ex.service";
 
 @Component({
   selector: "app-child",

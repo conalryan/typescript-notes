@@ -9,8 +9,9 @@ import {
   OnInit,
   SimpleChanges
 } from "@angular/core";
-import { AppComponent } from "../../../../../../../../old-workspace/frameworks/angular/dictionary/src/app/app.component";
+
 import { SharedService } from "../service/shared.service";
+import { AppComponent } from "../../app.component";
 
 /**
  * # Expression Changed After Check
