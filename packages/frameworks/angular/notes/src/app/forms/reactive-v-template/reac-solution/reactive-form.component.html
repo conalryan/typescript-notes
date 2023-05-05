@@ -1,0 +1,79 @@
+<div class="container">
+  <h1>Reactive Form</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+
+    <div class="row">
+      <div class="col form-group">
+        <label for="property">Property</label>
+        <input type="text"
+               class="form-control"
+               id="property"
+               name="property"
+               formControlName="propertyCode">
+        <div [hidden]="searchForm.controls['propertyCode'].valid || searchForm.controls['propertyCode'].pristine"
+             class="alert alert-danger">
+          Property is required
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="check-in">Check-in</label>
+        <input type="text"
+               class="form-control"
+               id="check-in"
+               name="check-in"
+               formControlName="checkIn">
+        <div [hidden]="searchForm.controls['checkIn'].valid || searchForm.controls['checkIn'].pristine"
+             class="alert alert-danger">
+          Check-in is required
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="nights">Nights</label>
+        <input type="number"
+               class="form-control"
+               id="nights"
+               name="nights"
+               formControlName="nights">
+        <div [hidden]="searchForm.controls['nights'].valid || searchForm.controls['nights'].pristine" class="alert alert-danger">
+          Nights is required
+        </div>
+      </div>
+
+      <div class="col form-group">
+        <label for="adults">Adults</label>
+        <app-reactive-counter id="adults"
+                              [minValue]="1"
+                              [maxValue]="9"
+                              [fc]="searchForm.controls['adults']">
+        </app-reactive-counter>
+      </div>
+
+      <div class="col form-group">
+        <label for="children">Children</label>
+        <app-reactive-counter id="children"
+                              [minValue]="0"
+                              [maxValue]="9"
+                              [fc]="searchForm.controls['children']">
+        </app-reactive-counter>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col offset-10">
+        <button type="button" class="btn btn-default" (click)="newSearch(); searchForm.reset()">Clear</button>
+        <button type="submit" class="btn btn-success" [disabled]="!searchForm.valid">Search</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- NOT SHOWN IN DOCS -->
+  <!--<div>
+    <hr>
+    Name via form.controls = {{showFormControls(heroForm)}}
+  </div>-->
+
+</div>

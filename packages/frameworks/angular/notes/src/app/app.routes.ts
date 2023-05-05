@@ -29,4 +29,12 @@ export const appRoutes: Route[] = [
     path: 'expression-changed-after-check',
     loadChildren: () => import('./expression-changed-after-check/expression-changed-after-check.module').then(m => m.ExpressionChangedAfterCheckModule),
   },
+  {
+    path: 'forms',
+    loadChildren: () => import('./forms/my-forms.module').then(m => m.MyFormsModule),
+  },
+  {
+    path: 'http-ex',
+    loadChildren: () => import('./http-ex/http-ex.module').then(m => m.HttpExModule),
+  },
 ];

@@ -1,6 +1,6 @@
 import {Directive, Input} from '@angular/core';
 import {NG_VALIDATORS, Validator, FormControl} from '@angular/forms';
-import {AppValidators} from '../../../../../../../../old-workspace/frameworks/angular/dictionary/src/app/validators/AppValidators';
+import { AppValidators } from '../../validators/AppValidators';
 
 @Directive({
   selector: '[appCustomMax][formControlName],[appCustomMax][formControl],[appCustomMax][ngModel]',
