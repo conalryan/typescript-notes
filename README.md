@@ -24,3 +24,13 @@
 *ts means packages
 
 `npx create-nx-workspace@15 typescript-notes --preset=ts --nxCloud false --defaultBase master --packageManager yarn`
+
+## Angular
+
+ `nx g @nrwl/angular:app notes --directory frameworks/angular --routing ---style scss --standalone --e2eTestRunner none`
+
+ ## js
+
+ `nx g @nrwl/js:lib data-structures --directory lang --unitTestRunner jest `
+
+
