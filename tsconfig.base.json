@@ -21,6 +21,9 @@
       "@typescript-notes/design-patterns/observer": [
         "packages/design-patterns/observer/src/index.ts"
       ],
+      "@typescript-notes/frameworks/rxjs/notes": [
+        "packages/frameworks/rxjs/notes/src/index.ts"
+      ],
       "@typescript-notes/lang/algorithms": [
         "packages/lang/algorithms/src/index.ts"
       ],
