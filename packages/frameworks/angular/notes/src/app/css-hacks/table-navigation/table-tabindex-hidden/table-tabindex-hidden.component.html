@@ -1,0 +1,64 @@
+<h1>Table using tabindex Hide buttons</h1>
+
+<form>
+  <div class="form-group">
+    <label for="first-name">First name</label>
+    <input type="text"
+           class="form-control"
+           id="first-name"
+           name="first-name"/>
+  </div>
+</form>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th tabindex="0">#</th>
+    <th tabindex="0">First Name</th>
+    <th tabindex="0">Last Name</th>
+    <th tabindex="0" class="fixed-col" (focus)="resetFocusId()">Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr tabindex="0"
+      *ngFor="let item of items; let i = index"
+      id="{{'item-' + i}}"
+      [class.selected]="isRowFocused(item?.id)"
+      (keyup)="onRowKeyup($event, item.id)"
+      (click)="onRowClick($event, item.id)"
+      (mouseenter)="hoverId = item.id || null" (mouseleave)="hoverId = null">
+    <th scope="row">{{i}}</th>
+    <td>{{item?.firstName}}</td>
+    <td>{{item?.lastName}}</td>
+    <td>
+      <span [ngClass]="{'email': showActionButtons(item.id)}">{{item?.email}}</span>
+      <div class="action-buttons" [hidden]="!showActionButtons(item.id)">
+        <button tabindex="0"
+                type="button"
+                class="btn btn-secondary"
+                id="view"
+                (click)="$event.preventDefault(); onViewClick(item)">
+          View
+        </button>
+        <button tabindex="0"
+                type="button"
+                class="btn btn-secondary"
+                id="edit"
+                (click)="$event.preventDefault(); onEditClick(item)">
+          Edit
+        </button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="form-group">
+  <label for="tab-catch">input to catch next tab</label>
+  <input type="text"
+         class="form-control"
+         id="tab-catch"
+         name="tab-catch"
+        (focus)="resetFocusId()"/>
+</div>
+
