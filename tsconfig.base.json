@@ -33,7 +33,16 @@
       "@typescript-notes/node/commonjs": [
         "packages/node/commonjs/src/index.ts"
       ],
-      "@typescript-notes/node/esm": ["packages/node/esm/src/index.ts"]
+      "@typescript-notes/node/esm": ["packages/node/esm/src/index.ts"],
+      "@typescript-notes/schematics/angular-io-guide-creating-schematic-collection": [
+        "packages/schematics/angular-io-guide-creating-schematic-collection/src/index.ts"
+      ],
+      "@typescript-notes/schematics/angular-io-guide-schematics": [
+        "packages/schematics/angular-io-guide-schematics/src/index.ts"
+      ],
+      "@typescript-notes/schematics/hello-world": [
+        "packages/schematics/hello-world/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
