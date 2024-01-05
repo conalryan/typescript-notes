@@ -16,5 +16,5 @@ Only years[2] or years['2'] is an actual array index. years['02'] is an arbitrar
 - You can manually increasse or decrease the length simpy by chanaging the property `someArray.length = 22;`
 
 ## [Array methods and empty slots](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#array_methods_and_empty_slots)
-- Empty slots in sparse arrays behave inconsistently between array methods.
+- Empty slotsb in sparse arrays behave inconsistently between array methods.
 - Generally, the older methods will skip empty slots, while newer ones treat them as undefined.
