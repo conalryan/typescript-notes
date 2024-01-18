@@ -1,4 +1,4 @@
-import { List } from "../list";
+import { List } from "./list";
 
 export class ArrayList<T> implements List<T> {
   length: number;
