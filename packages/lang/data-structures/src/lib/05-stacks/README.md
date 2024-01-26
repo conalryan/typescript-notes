@@ -14,8 +14,7 @@ type Node<T> = {
 }
 
 interface Stack<T> {
-	public length: number;
-	private head?: Node<T>;
+	length: number;
 
 	push(item: T): void;
 	pop(): T | undefined;

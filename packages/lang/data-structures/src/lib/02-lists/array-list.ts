@@ -3,9 +3,11 @@ import { List } from "./list";
 export class ArrayList<T> implements List<T> {
   length: number;
   private arr: T[];
+  private capacity: number;
 
-  constructor(private capacity: number = 10) {
+  constructor() {
     this.length = 0;
+    this.capacity = 10
     this.arr = new Array<T>(this.capacity);
   }
 
